@@ -1,5 +1,5 @@
 /**
- * Italian vocabulary — 771 words.
+ * Italian vocabulary — 835 words.
  *
  * Schema:
  *   id       {number}  unique identifier
@@ -857,6 +857,82 @@ const italianVocabRaw = [
   { id:769, source:"La necessità aguzza l'ingegno",               translations:{ en:"Necessity is the mother of invention",   ar:"الحاجة أم الاختراع"              }, level:"C2", category:"sentences" },
   { id:770, source:"Chi semina vento raccoglie tempesta",          translations:{ en:"You reap what you sow",                  ar:"من يزرع الريح يحصد العاصفة"      }, level:"C2", category:"sentences" },
   { id:771, source:"Vale più la pratica della grammatica",         translations:{ en:"Practice makes perfect",                 ar:"الممارسة خير من القواعد النظرية" }, level:"C2", category:"sentences" },
+
+  // ── A1 SENTENCES (extra) ──────────────────────────────────────────────────
+  { id:772, source:"Mi chiamo Marco",                   translations:{ en:"My name is Marco",                   ar:"اسمي ماركو"                    }, level:"A1", category:"sentences" },
+  { id:773, source:"Ho fame",                           translations:{ en:"I'm hungry",                         ar:"أنا جائع"                      }, level:"A1", category:"sentences" },
+  { id:774, source:"Ho sete",                           translations:{ en:"I'm thirsty",                        ar:"أنا عطشان"                     }, level:"A1", category:"sentences" },
+  { id:775, source:"Sono stanco",                       translations:{ en:"I'm tired",                          ar:"أنا متعب"                      }, level:"A1", category:"sentences" },
+  { id:776, source:"Abito a Roma",                      translations:{ en:"I live in Rome",                     ar:"أسكن في روما"                  }, level:"A1", category:"sentences" },
+  { id:777, source:"Sono italiano",                     translations:{ en:"I am Italian",                       ar:"أنا إيطالي"                    }, level:"A1", category:"sentences" },
+  { id:778, source:"Come ti chiami?",                   translations:{ en:"What is your name?",                 ar:"ما اسمك؟"                      }, level:"A1", category:"sentences" },
+  { id:779, source:"Dov'è la stazione?",                translations:{ en:"Where is the station?",              ar:"أين المحطة؟"                   }, level:"A1", category:"sentences" },
+  { id:780, source:"Non parlo italiano",                translations:{ en:"I don't speak Italian",              ar:"لا أتحدث الإيطالية"            }, level:"A1", category:"sentences" },
+  { id:781, source:"Aspetta un momento",                translations:{ en:"Wait a moment",                      ar:"انتظر لحظة"                    }, level:"A1", category:"sentences" },
+  { id:782, source:"Hai fame?",                         translations:{ en:"Are you hungry?",                    ar:"هل أنت جائع؟"                  }, level:"A1", category:"sentences" },
+  { id:783, source:"Buona notte!",                      translations:{ en:"Good night!",                        ar:"تصبح على خير!"                 }, level:"A1", category:"sentences" },
+  { id:784, source:"A presto!",                         translations:{ en:"See you soon!",                      ar:"أراك قريباً!"                  }, level:"A1", category:"sentences" },
+  { id:785, source:"Dov'è il bagno?",                   translations:{ en:"Where is the bathroom?",             ar:"أين الحمام؟"                   }, level:"A1", category:"sentences" },
+  { id:786, source:"Ho bisogno di acqua",               translations:{ en:"I need water",                       ar:"أحتاج إلى ماء"                 }, level:"A1", category:"sentences" },
+
+  // ── A2 SENTENCES (extra) ──────────────────────────────────────────────────
+  { id:787, source:"Posso pagare con la carta?",        translations:{ en:"Can I pay by card?",                 ar:"هل يمكنني الدفع بالبطاقة؟"    }, level:"A2", category:"sentences" },
+  { id:788, source:"Mi dispiace, sono in ritardo",      translations:{ en:"I'm sorry, I'm late",               ar:"آسف، أنا متأخر"                }, level:"A2", category:"sentences" },
+  { id:789, source:"Che tempo fa oggi?",                translations:{ en:"What's the weather like today?",     ar:"كيف الطقس اليوم؟"             }, level:"A2", category:"sentences" },
+  { id:790, source:"Sto cercando un ristorante",        translations:{ en:"I'm looking for a restaurant",       ar:"أبحث عن مطعم"                  }, level:"A2", category:"sentences" },
+  { id:791, source:"Ho perso il portafoglio",           translations:{ en:"I lost my wallet",                   ar:"لقد فقدت محفظتي"               }, level:"A2", category:"sentences" },
+  { id:792, source:"Devo andare in banca",              translations:{ en:"I need to go to the bank",           ar:"أحتاج إلى الذهاب إلى البنك"   }, level:"A2", category:"sentences" },
+  { id:793, source:"A che ora chiude?",                 translations:{ en:"What time does it close?",           ar:"متى يُغلق؟"                    }, level:"A2", category:"sentences" },
+  { id:794, source:"Vorrei un caffè, grazie",           translations:{ en:"I'd like a coffee, thank you",       ar:"أريد قهوة، شكراً"              }, level:"A2", category:"sentences" },
+  { id:795, source:"Scusi, è libero questo posto?",     translations:{ en:"Excuse me, is this seat free?",      ar:"عذراً، هل هذا المقعد شاغر؟"   }, level:"A2", category:"sentences" },
+  { id:796, source:"Non mi sento bene",                 translations:{ en:"I don't feel well",                  ar:"لا أشعر بحال جيد"              }, level:"A2", category:"sentences" },
+  { id:797, source:"Dove posso comprare una cartina?",  translations:{ en:"Where can I buy a map?",             ar:"أين يمكنني شراء خريطة؟"        }, level:"A2", category:"sentences" },
+  { id:798, source:"Vorrei prenotare una camera",       translations:{ en:"I'd like to book a room",            ar:"أريد حجز غرفة"                 }, level:"A2", category:"sentences" },
+
+  // ── B1 SENTENCES (extra) ──────────────────────────────────────────────────
+  { id:799, source:"Sto imparando l'italiano da sei mesi",   translations:{ en:"I've been learning Italian for six months", ar:"أتعلم الإيطالية منذ ستة أشهر"   }, level:"B1", category:"sentences" },
+  { id:800, source:"Mi piace molto la cucina italiana",      translations:{ en:"I really like Italian cuisine",           ar:"أحب المطبخ الإيطالي كثيراً"     }, level:"B1", category:"sentences" },
+  { id:801, source:"Che cosa ne pensi?",                     translations:{ en:"What do you think about it?",             ar:"ما رأيك في هذا؟"                 }, level:"B1", category:"sentences" },
+  { id:802, source:"Penso che sia una buona idea",           translations:{ en:"I think it's a good idea",               ar:"أعتقد أنها فكرة جيدة"            }, level:"B1", category:"sentences" },
+  { id:803, source:"Spero di tornare presto",                translations:{ en:"I hope to come back soon",               ar:"آمل أن أعود قريباً"              }, level:"B1", category:"sentences" },
+  { id:804, source:"Preferisco il tè al caffè",              translations:{ en:"I prefer tea to coffee",                 ar:"أفضل الشاي على القهوة"           }, level:"B1", category:"sentences" },
+  { id:805, source:"Bisogna studiare ogni giorno",           translations:{ en:"You need to study every day",            ar:"يجب الدراسة كل يوم"              }, level:"B1", category:"sentences" },
+  { id:806, source:"Quando arrivi, chiamami",                translations:{ en:"When you arrive, call me",               ar:"عندما تصل، اتصل بي"              }, level:"B1", category:"sentences" },
+  { id:807, source:"Stavo aspettando da un'ora",             translations:{ en:"I had been waiting for an hour",         ar:"كنت أنتظر منذ ساعة"             }, level:"B1", category:"sentences" },
+  { id:808, source:"Puoi consigliarmi un buon ristorante?",  translations:{ en:"Can you recommend a good restaurant?",   ar:"هل يمكنك أن تنصحني بمطعم جيد؟" }, level:"B1", category:"sentences" },
+  { id:809, source:"Ho dimenticato di portare i documenti",  translations:{ en:"I forgot to bring my documents",        ar:"نسيت إحضار وثائقي"               }, level:"B1", category:"sentences" },
+  { id:810, source:"Ti andrebbe di uscire stasera?",         translations:{ en:"Would you like to go out tonight?",      ar:"هل تريد الخروج الليلة؟"          }, level:"B1", category:"sentences" },
+
+  // ── B2 SENTENCES (extra) ──────────────────────────────────────────────────
+  { id:811, source:"Per quanto riguarda la questione...",          translations:{ en:"As regards the matter...",                     ar:"فيما يتعلق بالمسألة..."                }, level:"B2", category:"sentences" },
+  { id:812, source:"Sembra che la situazione stia migliorando",   translations:{ en:"It seems the situation is improving",          ar:"يبدو أن الوضع يتحسن"                  }, level:"B2", category:"sentences" },
+  { id:813, source:"Ci vorrà del tempo prima che le cose cambino",translations:{ en:"It will take time before things change",       ar:"سيستغرق الأمر وقتاً قبل أن تتغير الأمور" }, level:"B2", category:"sentences" },
+  { id:814, source:"È probabile che piova domani",                translations:{ en:"It's likely to rain tomorrow",                 ar:"من المحتمل أن تمطر غداً"               }, level:"B2", category:"sentences" },
+  { id:815, source:"Non è detto che abbia ragione",               translations:{ en:"It's not certain that he's right",            ar:"ليس من المؤكد أنه على حق"              }, level:"B2", category:"sentences" },
+  { id:816, source:"Malgrado tutto, sono rimasto ottimista",      translations:{ en:"Despite everything, I remained optimistic",   ar:"رغم كل شيء، بقيت متفائلاً"             }, level:"B2", category:"sentences" },
+  { id:817, source:"Avrei preferito che le cose andassero diversamente", translations:{ en:"I'd have preferred things to go differently", ar:"كنت أفضل أن تسير الأمور بشكل مختلف" }, level:"B2", category:"sentences" },
+  { id:818, source:"Tenendo conto delle circostanze...",          translations:{ en:"Taking the circumstances into account...",    ar:"مع الأخذ بعين الاعتبار الظروف..."     }, level:"B2", category:"sentences" },
+  { id:819, source:"Ho appena finito di leggere un romanzo",      translations:{ en:"I just finished reading a novel",             ar:"لقد أنهيت للتو قراءة رواية"            }, level:"B2", category:"sentences" },
+  { id:820, source:"Sarebbe opportuno rivedere la nostra posizione", translations:{ en:"It would be wise to review our position", ar:"سيكون من المناسب مراجعة موقفنا"        }, level:"B2", category:"sentences" },
+
+  // ── C1 SENTENCES (extra) ──────────────────────────────────────────────────
+  { id:821, source:"Stando così le cose, è difficile prevedere l'esito",    translations:{ en:"Given this situation, it's hard to predict the outcome",    ar:"في ظل هذا الوضع، يصعب التنبؤ بالنتيجة"           }, level:"C1", category:"sentences" },
+  { id:822, source:"Il fatto che sia possibile non significa che sia auspicabile", translations:{ en:"The fact that it's possible doesn't mean it's desirable", ar:"كون الأمر ممكناً لا يعني أنه مرغوب فيه"       }, level:"C1", category:"sentences" },
+  { id:823, source:"La questione è più complessa di quanto sembri",         translations:{ en:"The issue is more complex than it appears",                  ar:"المسألة أكثر تعقيداً مما تبدو عليه"               }, level:"C1", category:"sentences" },
+  { id:824, source:"Tutto ciò presuppone un cambiamento di mentalità",      translations:{ en:"All this presupposes a change of mindset",                  ar:"كل هذا يفترض تغييراً في طريقة التفكير"            }, level:"C1", category:"sentences" },
+  { id:825, source:"Sarebbe riduttivo limitarsi a questa interpretazione",  translations:{ en:"It'd be reductive to limit oneself to this interpretation",  ar:"سيكون اختزالاً تقييد النفس بهذا التفسير"          }, level:"C1", category:"sentences" },
+  { id:826, source:"Nel corso degli anni ho maturato una diversa visione",  translations:{ en:"Over the years I've developed a different perspective",      ar:"على مدار السنين طورت رؤية مختلفة"                  }, level:"C1", category:"sentences" },
+  { id:827, source:"Non si tratta semplicemente di cambiare le regole",     translations:{ en:"It's not simply a matter of changing the rules",            ar:"الأمر ليس مجرد تغيير القواعد"                      }, level:"C1", category:"sentences" },
+  { id:828, source:"Bisogna distinguere tra ciò che si dice e ciò che si intende", translations:{ en:"One must distinguish between what is said and what is meant", ar:"يجب التمييز بين ما يُقال وما يُقصد"         }, level:"C1", category:"sentences" },
+
+  // ── C2 SENTENCES (extra) ──────────────────────────────────────────────────
+  { id:829, source:"Non tutto ciò che luccica è oro",                  translations:{ en:"Not everything that glitters is gold",             ar:"ليس كل ما يلمع ذهباً"                            }, level:"C2", category:"sentences" },
+  { id:830, source:"Il silenzio è spesso più eloquente delle parole",  translations:{ en:"Silence is often more eloquent than words",        ar:"الصمت كثيراً ما يكون أبلغ من الكلام"             }, level:"C2", category:"sentences" },
+  { id:831, source:"Chi troppo vuole nulla stringe",                   translations:{ en:"Grasp all, lose all",                              ar:"من يريد كل شيء لا يحصل على شيء"                  }, level:"C2", category:"sentences" },
+  { id:832, source:"L'abito non fa il monaco",                         translations:{ en:"Clothes don't make the man",                      ar:"الثوب لا يصنع الراهب"                            }, level:"C2", category:"sentences" },
+  { id:833, source:"Le parole hanno il potere di edificare o distruggere", translations:{ en:"Words have the power to build or destroy",    ar:"للكلمات قوة البناء أو الهدم"                      }, level:"C2", category:"sentences" },
+  { id:834, source:"La realtà supera spesso la fantasia più ardita",   translations:{ en:"Reality often surpasses the boldest imagination", ar:"الواقع كثيراً ما يتجاوز أجرأ الخيالات"           }, level:"C2", category:"sentences" },
+  { id:835, source:"Tutto sommato, ogni esperienza ha il suo valore",  translations:{ en:"All things considered, every experience has value",ar:"في المحصلة، لكل تجربة قيمتها"                    }, level:"C2", category:"sentences" },
 ];
 
 export default italianVocabRaw;
