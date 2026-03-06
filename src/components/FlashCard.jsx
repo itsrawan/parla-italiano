@@ -66,16 +66,16 @@ export function FlashCard({
               <CardMeta levelColor={levelColor} card={card} cat={cat} lang={lang} />
               {!card.isCustom && (
                 <button
-                  style={{ ...styles.bookmarkBtn, color: isBookmarked ? "#ef4444" : colors.slate300 }}
+                  style={{ ...styles.bookmarkBtn, color: isBookmarked ? "#ef4444" : "#fca5a5" }}
                   onClick={e => { e.stopPropagation(); onToggleBookmark(); }}
                 >
-                  <HeartIcon filled={isBookmarked} />
+                  <HeartIcon filled={isBookmarked} size={22} />
                 </button>
               )}
             </div>
 
             <div style={styles.frontCenter}>
-              <div style={styles.italianWord}>{card.source}</div>
+              <div style={{ ...styles.italianWord, direction: "ltr" }}>{card.source}</div>
               <button
                 disabled={!canSpeak}
                 style={{ ...styles.speakBtnLarge, ...(!canSpeak && styles.speakBtnDisabled) }}
@@ -112,11 +112,13 @@ export function FlashCard({
             />
 
             <div style={styles.backCenter}>
-              <div style={styles.backSource}>{card.source}</div>
+              <div style={{ ...styles.backSource, direction: "ltr" }}>{card.source}</div>
               <div style={styles.divider} />
-              <div style={styles.translationEn}>{card.translations.en}</div>
-              <div style={{ ...styles.translationAr, direction: "rtl" }}>
-                {card.translations.ar}
+              <div style={{
+                ...(lang === "ar" ? styles.translationAr : styles.translationEn),
+                direction: lang === "ar" ? "rtl" : "ltr",
+              }}>
+                {card.translations[lang] ?? card.translations.en}
               </div>
             </div>
 
@@ -272,7 +274,7 @@ const styles = {
     marginBottom: 10,
   },
   translationAr: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: 700,
     color: "rgba(255,255,255,0.88)",
     fontFamily: fonts.arabic,

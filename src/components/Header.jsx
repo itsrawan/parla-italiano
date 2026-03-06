@@ -32,41 +32,42 @@ export function Header({
         </div>
 
         <div style={styles.right}>
-          {/* Quiz toggle */}
+          {/* Quiz toggle — pencil on clipboard */}
           <button
             title={s.quiz}
             style={{
               ...styles.iconBtn,
               background:
                 mode === "quiz"
-                  ? "rgba(245,158,11,0.75)"
+                  ? "rgba(245,158,11,0.85)"
                   : "rgba(255,255,255,0.15)",
             }}
             onClick={onToggleMode}
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-              <line x1="12" y1="17" x2="12.01" y2="17" />
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
             </svg>
           </button>
 
-          {/* Shuffle toggle */}
+          {/* Shuffle toggle — dice */}
           <button
             title={s.shuffle}
             style={{
               ...styles.iconBtn,
               background: isShuffled
-                ? "rgba(34,197,94,0.6)"
+                ? "rgba(34,197,94,0.75)"
                 : "rgba(255,255,255,0.15)",
             }}
             onClick={onToggleShuffle}
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="16 3 21 3 21 8" />
-              <line x1="4" y1="20" x2="21" y2="3" />
-              <polyline points="21 16 21 21 16 21" />
-              <line x1="15" y1="15" x2="21" y2="21" />
+              <rect x="2" y="2" width="20" height="20" rx="4" ry="4" />
+              <circle cx="8"  cy="8"  r="1.5" fill="currentColor" stroke="none" />
+              <circle cx="16" cy="8"  r="1.5" fill="currentColor" stroke="none" />
+              <circle cx="8"  cy="16" r="1.5" fill="currentColor" stroke="none" />
+              <circle cx="16" cy="16" r="1.5" fill="currentColor" stroke="none" />
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
             </svg>
           </button>
 
@@ -122,15 +123,17 @@ export function Header({
 
       {/* Mode banners */}
       {mode === "quiz" && (
-        <div style={styles.banner}>{s.quizModeBanner}</div>
+        <div style={{ ...styles.banner, background: "rgba(245,158,11,0.55)" }}>
+          ✏️ {s.quizModeBanner}
+        </div>
       )}
       {isShuffled && mode !== "quiz" && (
-        <div style={{ ...styles.banner, background: "rgba(34,197,94,0.2)" }}>
-          {s.shuffledBanner}
+        <div style={{ ...styles.banner, background: "rgba(34,197,94,0.45)" }}>
+          🎲 {s.shuffledBanner}
         </div>
       )}
       {myDeckOnly && (
-        <div style={{ ...styles.banner, background: "rgba(239,68,68,0.18)" }}>
+        <div style={{ ...styles.banner, background: "rgba(239,68,68,0.45)" }}>
           ♥ {s.myDeck}
         </div>
       )}
@@ -184,11 +187,12 @@ const styles = {
     lineHeight: 1.4,
   },
   banner: {
-    background: "rgba(245,158,11,0.2)",
+    background: "rgba(245,158,11,0.55)",
     color: "#fff",
-    fontSize: 12,
-    fontWeight: 600,
+    fontSize: 13,
+    fontWeight: 700,
     textAlign: "center",
-    padding: "4px 16px",
+    padding: "7px 16px",
+    letterSpacing: 0.2,
   },
 };
