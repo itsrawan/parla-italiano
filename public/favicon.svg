@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="bubble">
+      <path d="M3 1h26a2 2 0 0 1 2 2v17a2 2 0 0 1-2 2H17.5l-3.5 5.5-3.5-5.5H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+    </clipPath>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
+  </defs>
+
+  <!-- Italian tricolor stripes clipped to speech bubble -->
+  <rect x="0"  y="0" width="11" height="32" fill="#009246" clip-path="url(#bubble)"/>
+  <rect x="11" y="0" width="10" height="32" fill="#f5f5f5" clip-path="url(#bubble)"/>
+  <rect x="21" y="0" width="11" height="32" fill="#ce2b37" clip-path="url(#bubble)"/>
+
+  <!-- Bubble outline with drop shadow -->
+  <path
+    d="M3 1h26a2 2 0 0 1 2 2v17a2 2 0 0 1-2 2H17.5l-3.5 5.5-3.5-5.5H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"
+    fill="none"
+    stroke="rgba(0,0,0,0.18)"
+    stroke-width="1"
+    filter="url(#shadow)"
+  />
+
+  <!-- White 5-pointed star (Stellone d'Italia) -->
+  <path
+    d="M16,7.5 L17.06,10.54 L20.28,10.61 L17.71,12.56 L18.65,15.64 L16,13.8 L13.35,15.64 L14.29,12.56 L11.72,10.61 L14.94,10.54 Z"
+    fill="white"
+    opacity="0.92"
+  />
+</svg>
