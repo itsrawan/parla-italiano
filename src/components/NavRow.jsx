@@ -45,7 +45,8 @@ const styles = {
     color: colors.green900,
   },
   flipBtn: {
-    padding: "13px 32px",
+    width: 130,
+    padding: "13px 0",
     borderRadius: radius.md,
     border: "none",
     background: gradients.green,
@@ -54,5 +55,6 @@ const styles = {
     fontSize: 17,
     fontWeight: 700,
     boxShadow: shadow.btn,
+    textAlign: "center",
   },
 };

@@ -1,5 +1,5 @@
 /**
- * Italian vocabulary — 548 words.
+ * Italian vocabulary — 771 words.
  *
  * Schema:
  *   id       {number}  unique identifier
@@ -586,6 +586,277 @@ const italianVocabRaw = [
   { id:546, source:"entusiasmo",   translations:{ en:"enthusiasm",         ar:"حماس"              }, level:"B1", category:"emotions" },
   { id:547, source:"solitudine",   translations:{ en:"loneliness",         ar:"وحدة"              }, level:"B2", category:"emotions" },
   { id:548, source:"fiducia",      translations:{ en:"trust / confidence", ar:"ثقة"               }, level:"B2", category:"emotions" },
+
+  // ── B1 VERBS ──────────────────────────────────────────────────────────────
+  { id:549, source:"discutere",       translations:{ en:"to discuss",         ar:"يناقش"            }, level:"B1", category:"verbs" },
+  { id:550, source:"spiegare",        translations:{ en:"to explain",         ar:"يشرح"             }, level:"B1", category:"verbs" },
+  { id:551, source:"ricordare",       translations:{ en:"to remember",        ar:"يتذكر"            }, level:"B1", category:"verbs" },
+  { id:552, source:"dimenticare",     translations:{ en:"to forget",          ar:"ينسى"             }, level:"B1", category:"verbs" },
+  { id:553, source:"insegnare",       translations:{ en:"to teach",           ar:"يُعلِّم"           }, level:"B1", category:"verbs" },
+  { id:554, source:"crescere",        translations:{ en:"to grow",            ar:"ينمو"             }, level:"B1", category:"verbs" },
+  { id:555, source:"scegliere",       translations:{ en:"to choose",          ar:"يختار"            }, level:"B1", category:"verbs" },
+  { id:556, source:"perdere",         translations:{ en:"to lose",            ar:"يخسر / يضيع"      }, level:"B1", category:"verbs" },
+  { id:557, source:"costruire",       translations:{ en:"to build",           ar:"يبني"             }, level:"B1", category:"verbs" },
+  { id:558, source:"smettere",        translations:{ en:"to stop / quit",     ar:"يتوقف عن"         }, level:"B1", category:"verbs" },
+  { id:559, source:"continuare",      translations:{ en:"to continue",        ar:"يستمر"            }, level:"B1", category:"verbs" },
+  { id:560, source:"cambiare",        translations:{ en:"to change",          ar:"يُغيِّر"           }, level:"B1", category:"verbs" },
+  { id:561, source:"migliorare",      translations:{ en:"to improve",         ar:"يُحسِّن"           }, level:"B1", category:"verbs" },
+  { id:562, source:"riuscire",        translations:{ en:"to succeed / manage",ar:"ينجح"             }, level:"B1", category:"verbs" },
+  { id:563, source:"sembrare",        translations:{ en:"to seem",            ar:"يبدو"             }, level:"B1", category:"verbs" },
+  { id:564, source:"significare",     translations:{ en:"to mean",            ar:"يعني"             }, level:"B1", category:"verbs" },
+  { id:565, source:"decidere",        translations:{ en:"to decide",          ar:"يقرر"             }, level:"B1", category:"verbs" },
+  { id:566, source:"credere",         translations:{ en:"to believe",         ar:"يؤمن / يعتقد"     }, level:"B1", category:"verbs" },
+  { id:567, source:"provare",         translations:{ en:"to try",             ar:"يحاول"            }, level:"B1", category:"verbs" },
+  { id:568, source:"raggiungere",     translations:{ en:"to reach / achieve", ar:"يصل إلى / يحقق"   }, level:"B1", category:"verbs" },
+  { id:569, source:"preoccuparsi",    translations:{ en:"to worry",           ar:"يقلق"             }, level:"B1", category:"verbs" },
+  { id:570, source:"divertirsi",      translations:{ en:"to have fun",        ar:"يستمتع"           }, level:"B1", category:"verbs" },
+  { id:571, source:"riposarsi",       translations:{ en:"to rest",            ar:"يستريح"           }, level:"B1", category:"verbs" },
+  { id:572, source:"prepararsi",      translations:{ en:"to get ready",       ar:"يستعد"            }, level:"B1", category:"verbs" },
+  { id:573, source:"diventare",       translations:{ en:"to become",          ar:"يصبح"             }, level:"B1", category:"verbs" },
+
+  // ── B1 ADJECTIVES ─────────────────────────────────────────────────────────
+  { id:574, source:"necessario",      translations:{ en:"necessary",          ar:"ضروري"            }, level:"B1", category:"adjectives" },
+  { id:575, source:"diverso",         translations:{ en:"different",          ar:"مختلف"            }, level:"B1", category:"adjectives" },
+  { id:576, source:"simile",          translations:{ en:"similar",            ar:"مشابه"            }, level:"B1", category:"adjectives" },
+  { id:577, source:"pericoloso",      translations:{ en:"dangerous",          ar:"خطير"             }, level:"B1", category:"adjectives" },
+  { id:578, source:"sicuro",          translations:{ en:"safe / sure",        ar:"آمن / متأكد"       }, level:"B1", category:"adjectives" },
+  { id:579, source:"debole",          translations:{ en:"weak",               ar:"ضعيف"             }, level:"B1", category:"adjectives" },
+  { id:580, source:"antico",          translations:{ en:"ancient / old",      ar:"قديم"             }, level:"B1", category:"adjectives" },
+  { id:581, source:"moderno",         translations:{ en:"modern",             ar:"حديث / عصري"      }, level:"B1", category:"adjectives" },
+  { id:582, source:"tranquillo",      translations:{ en:"calm / peaceful",    ar:"هادئ"             }, level:"B1", category:"adjectives" },
+  { id:583, source:"stanco",          translations:{ en:"tired",              ar:"متعب"             }, level:"B1", category:"adjectives" },
+  { id:584, source:"curioso",         translations:{ en:"curious",            ar:"فضولي"            }, level:"B1", category:"adjectives" },
+  { id:585, source:"creativo",        translations:{ en:"creative",           ar:"مبدع"             }, level:"B1", category:"adjectives" },
+  { id:586, source:"pratico",         translations:{ en:"practical",          ar:"عملي"             }, level:"B1", category:"adjectives" },
+  { id:587, source:"preciso",         translations:{ en:"precise / accurate", ar:"دقيق"             }, level:"B1", category:"adjectives" },
+  { id:588, source:"paziente",        translations:{ en:"patient",            ar:"صبور"             }, level:"B1", category:"adjectives" },
+  { id:589, source:"ambizioso",       translations:{ en:"ambitious",          ar:"طموح"             }, level:"B1", category:"adjectives" },
+
+  // ── B1 WORK ───────────────────────────────────────────────────────────────
+  { id:590, source:"collega",         translations:{ en:"colleague",          ar:"زميل"             }, level:"B1", category:"work" },
+  { id:591, source:"stipendio",       translations:{ en:"salary",             ar:"راتب"             }, level:"B1", category:"work" },
+  { id:592, source:"contratto",       translations:{ en:"contract",           ar:"عقد"              }, level:"B1", category:"work" },
+  { id:593, source:"riunione",        translations:{ en:"meeting",            ar:"اجتماع"           }, level:"B1", category:"work" },
+  { id:594, source:"obiettivo",       translations:{ en:"goal / objective",   ar:"هدف"              }, level:"B1", category:"work" },
+  { id:595, source:"progetto",        translations:{ en:"project",            ar:"مشروع"            }, level:"B1", category:"work" },
+  { id:596, source:"carriera",        translations:{ en:"career",             ar:"مسيرة مهنية"       }, level:"B1", category:"work" },
+
+  // ── B1 HEALTH ─────────────────────────────────────────────────────────────
+  { id:597, source:"sintomo",         translations:{ en:"symptom",            ar:"عَرَض"             }, level:"B1", category:"health" },
+  { id:598, source:"diagnosi",        translations:{ en:"diagnosis",          ar:"تشخيص"            }, level:"B1", category:"health" },
+  { id:599, source:"terapia",         translations:{ en:"therapy / treatment",ar:"علاج"             }, level:"B1", category:"health" },
+  { id:600, source:"guarire",         translations:{ en:"to heal / recover",  ar:"يشفى"             }, level:"B1", category:"health" },
+  { id:601, source:"allergia",        translations:{ en:"allergy",            ar:"حساسية"           }, level:"B1", category:"health" },
+  { id:602, source:"pressione",       translations:{ en:"blood pressure",     ar:"ضغط الدم"         }, level:"B1", category:"health" },
+
+  // ── B1 EDUCATION ──────────────────────────────────────────────────────────
+  { id:603, source:"materia",         translations:{ en:"subject / topic",    ar:"مادة دراسية"       }, level:"B1", category:"education" },
+  { id:604, source:"voto",            translations:{ en:"grade / mark",       ar:"درجة / علامة"      }, level:"B1", category:"education" },
+  { id:605, source:"esame",           translations:{ en:"exam",               ar:"امتحان"           }, level:"B1", category:"education" },
+  { id:606, source:"compito",         translations:{ en:"homework / task",    ar:"واجب منزلي"        }, level:"B1", category:"education" },
+  { id:607, source:"lezione",         translations:{ en:"lesson",             ar:"درس"              }, level:"B1", category:"education" },
+  { id:608, source:"ricerca",         translations:{ en:"research",           ar:"بحث"              }, level:"B1", category:"education" },
+
+  // ── B1 SENTENCES ──────────────────────────────────────────────────────────
+  { id:609, source:"Ho bisogno di aiuto",            translations:{ en:"I need help",                  ar:"أحتاج إلى مساعدة"     }, level:"B1", category:"sentences" },
+  { id:610, source:"Come si dice in italiano?",      translations:{ en:"How do you say it in Italian?", ar:"كيف تقول ذلك بالإيطالية؟" }, level:"B1", category:"sentences" },
+  { id:611, source:"Puoi parlare più lentamente?",   translations:{ en:"Can you speak more slowly?",   ar:"هل يمكنك التحدث بشكل أبطأ؟" }, level:"B1", category:"sentences" },
+  { id:612, source:"Sono d'accordo con te",          translations:{ en:"I agree with you",             ar:"أنا أتفق معك"          }, level:"B1", category:"sentences" },
+  { id:613, source:"Non sono d'accordo",             translations:{ en:"I disagree",                   ar:"أنا لا أتفق"           }, level:"B1", category:"sentences" },
+  { id:614, source:"Quanto tempo ci vuole?",         translations:{ en:"How long does it take?",       ar:"كم من الوقت يستغرق؟"   }, level:"B1", category:"sentences" },
+  { id:615, source:"Mi piace molto questa città",    translations:{ en:"I like this city a lot",       ar:"أحب هذه المدينة كثيراً" }, level:"B1", category:"sentences" },
+  { id:616, source:"Che cosa hai fatto ieri?",       translations:{ en:"What did you do yesterday?",   ar:"ماذا فعلت أمس؟"        }, level:"B1", category:"sentences" },
+  { id:617, source:"Devo partire domani",            translations:{ en:"I have to leave tomorrow",     ar:"يجب أن أغادر غداً"     }, level:"B1", category:"sentences" },
+  { id:618, source:"Non capisco bene",               translations:{ en:"I don't understand well",      ar:"لا أفهم جيداً"         }, level:"B1", category:"sentences" },
+
+  // ── B2 VERBS ──────────────────────────────────────────────────────────────
+  { id:619, source:"affrontare",      translations:{ en:"to face / deal with", ar:"يواجه"            }, level:"B2", category:"verbs" },
+  { id:620, source:"analizzare",      translations:{ en:"to analyze",         ar:"يحلل"             }, level:"B2", category:"verbs" },
+  { id:621, source:"valutare",        translations:{ en:"to evaluate",        ar:"يقيِّم"            }, level:"B2", category:"verbs" },
+  { id:622, source:"sviluppare",      translations:{ en:"to develop",         ar:"يُطوِّر"           }, level:"B2", category:"verbs" },
+  { id:623, source:"stabilire",       translations:{ en:"to establish",       ar:"يُؤسِّس / يُحدِّد"  }, level:"B2", category:"verbs" },
+  { id:624, source:"risolvere",       translations:{ en:"to solve / resolve", ar:"يحل"              }, level:"B2", category:"verbs" },
+  { id:625, source:"sostenere",       translations:{ en:"to support / sustain",ar:"يدعم"             }, level:"B2", category:"verbs" },
+  { id:626, source:"proporre",        translations:{ en:"to propose",         ar:"يقترح"            }, level:"B2", category:"verbs" },
+  { id:627, source:"influenzare",     translations:{ en:"to influence",       ar:"يؤثر على"          }, level:"B2", category:"verbs" },
+  { id:628, source:"ottenere",        translations:{ en:"to obtain / get",    ar:"يحصل على"          }, level:"B2", category:"verbs" },
+  { id:629, source:"richiedere",      translations:{ en:"to require / request",ar:"يتطلب / يطلب"     }, level:"B2", category:"verbs" },
+  { id:630, source:"contribuire",     translations:{ en:"to contribute",      ar:"يساهم"            }, level:"B2", category:"verbs" },
+  { id:631, source:"dipendere",       translations:{ en:"to depend",          ar:"يعتمد على"         }, level:"B2", category:"verbs" },
+  { id:632, source:"approvare",       translations:{ en:"to approve",         ar:"يوافق على"         }, level:"B2", category:"verbs" },
+  { id:633, source:"rifiutare",       translations:{ en:"to refuse / reject", ar:"يرفض"             }, level:"B2", category:"verbs" },
+  { id:634, source:"permettere",      translations:{ en:"to allow / permit",  ar:"يسمح"             }, level:"B2", category:"verbs" },
+  { id:635, source:"prevedere",       translations:{ en:"to foresee / predict",ar:"يتوقع"            }, level:"B2", category:"verbs" },
+  { id:636, source:"ragionare",       translations:{ en:"to reason / think",  ar:"يفكر / يستدل"      }, level:"B2", category:"verbs" },
+  { id:637, source:"realizzare",      translations:{ en:"to achieve / realize",ar:"يُحقِّق / يُدرك"   }, level:"B2", category:"verbs" },
+  { id:638, source:"peggiorare",      translations:{ en:"to worsen",          ar:"يتدهور"           }, level:"B2", category:"verbs" },
+
+  // ── B2 ADJECTIVES ─────────────────────────────────────────────────────────
+  { id:639, source:"complesso",       translations:{ en:"complex",            ar:"معقد"             }, level:"B2", category:"adjectives" },
+  { id:640, source:"efficace",        translations:{ en:"effective",          ar:"فعّال"             }, level:"B2", category:"adjectives" },
+  { id:641, source:"sostenibile",     translations:{ en:"sustainable",        ar:"مستدام"           }, level:"B2", category:"adjectives" },
+  { id:642, source:"innovativo",      translations:{ en:"innovative",         ar:"مبتكر"            }, level:"B2", category:"adjectives" },
+  { id:643, source:"controverso",     translations:{ en:"controversial",      ar:"مثير للجدل"        }, level:"B2", category:"adjectives" },
+  { id:644, source:"consapevole",     translations:{ en:"aware / conscious",  ar:"واعٍ"             }, level:"B2", category:"adjectives" },
+  { id:645, source:"responsabile",    translations:{ en:"responsible",        ar:"مسؤول"            }, level:"B2", category:"adjectives" },
+  { id:646, source:"competente",      translations:{ en:"competent",          ar:"كفؤ"              }, level:"B2", category:"adjectives" },
+  { id:647, source:"determinato",     translations:{ en:"determined",         ar:"مصمم"             }, level:"B2", category:"adjectives" },
+  { id:648, source:"ottimista",       translations:{ en:"optimistic",         ar:"متفائل"           }, level:"B2", category:"adjectives" },
+  { id:649, source:"pessimista",      translations:{ en:"pessimistic",        ar:"متشائم"           }, level:"B2", category:"adjectives" },
+  { id:650, source:"impaziente",      translations:{ en:"impatient",          ar:"غير صبور"          }, level:"B2", category:"adjectives" },
+  { id:651, source:"esausto",         translations:{ en:"exhausted",          ar:"مُنهَك"            }, level:"B2", category:"adjectives" },
+  { id:652, source:"motivato",        translations:{ en:"motivated",          ar:"متحمس / مُحفَّز"   }, level:"B2", category:"adjectives" },
+
+  // ── B2 WORK ───────────────────────────────────────────────────────────────
+  { id:653, source:"dirigente",       translations:{ en:"manager / executive",ar:"مدير / تنفيذي"     }, level:"B2", category:"work" },
+  { id:654, source:"dipendente",      translations:{ en:"employee",           ar:"موظف"             }, level:"B2", category:"work" },
+  { id:655, source:"scadenza",        translations:{ en:"deadline",           ar:"موعد نهائي"        }, level:"B2", category:"work" },
+  { id:656, source:"strategia",       translations:{ en:"strategy",           ar:"استراتيجية"        }, level:"B2", category:"work" },
+  { id:657, source:"budget",          translations:{ en:"budget",             ar:"ميزانية"           }, level:"B2", category:"work" },
+  { id:658, source:"licenziare",      translations:{ en:"to fire / dismiss",  ar:"يُقيل / يطرد"      }, level:"B2", category:"work" },
+  { id:659, source:"assumere",        translations:{ en:"to hire",            ar:"يوظف"             }, level:"B2", category:"work" },
+  { id:660, source:"promuovere",      translations:{ en:"to promote",         ar:"يُرقِّي"           }, level:"B2", category:"work" },
+  { id:661, source:"negoziare",       translations:{ en:"to negotiate",       ar:"يتفاوض"           }, level:"B2", category:"work" },
+  { id:662, source:"colloquio",       translations:{ en:"job interview",      ar:"مقابلة عمل"        }, level:"B2", category:"work" },
+
+  // ── B2 EDUCATION ──────────────────────────────────────────────────────────
+  { id:663, source:"laurea",          translations:{ en:"university degree",  ar:"شهادة جامعية"      }, level:"B2", category:"education" },
+  { id:664, source:"tesi",            translations:{ en:"thesis",             ar:"أطروحة"           }, level:"B2", category:"education" },
+  { id:665, source:"dottorato",       translations:{ en:"doctorate / PhD",    ar:"دكتوراه"           }, level:"B2", category:"education" },
+  { id:666, source:"borsa di studio", translations:{ en:"scholarship",        ar:"منحة دراسية"       }, level:"B2", category:"education" },
+  { id:667, source:"facoltà",         translations:{ en:"faculty / school",   ar:"كلية"             }, level:"B2", category:"education" },
+  { id:668, source:"disciplina",      translations:{ en:"discipline / subject",ar:"مادة / انضباط"    }, level:"B2", category:"education" },
+  { id:669, source:"valutazione",     translations:{ en:"evaluation / assessment",ar:"تقييم"         }, level:"B2", category:"education" },
+
+  // ── B2 HEALTH ─────────────────────────────────────────────────────────────
+  { id:670, source:"intervento",      translations:{ en:"surgery / operation",ar:"عملية جراحية"      }, level:"B2", category:"health" },
+  { id:671, source:"prevenzione",     translations:{ en:"prevention",         ar:"الوقاية"           }, level:"B2", category:"health" },
+  { id:672, source:"cronico",         translations:{ en:"chronic",            ar:"مزمن"             }, level:"B2", category:"health" },
+  { id:673, source:"vaccino",         translations:{ en:"vaccine",            ar:"لقاح"             }, level:"B2", category:"health" },
+  { id:674, source:"riabilitazione",  translations:{ en:"rehabilitation",     ar:"إعادة التأهيل"     }, level:"B2", category:"health" },
+  { id:675, source:"benessere",       translations:{ en:"well-being",         ar:"رفاهية"           }, level:"B2", category:"health" },
+
+  // ── B2 NATURE ─────────────────────────────────────────────────────────────
+  { id:676, source:"cambiamento climatico", translations:{ en:"climate change",  ar:"تغير المناخ"    }, level:"B2", category:"nature" },
+  { id:677, source:"inquinamento",    translations:{ en:"pollution",          ar:"تلوث"             }, level:"B2", category:"nature" },
+  { id:678, source:"biodiversità",    translations:{ en:"biodiversity",       ar:"التنوع البيولوجي"  }, level:"B2", category:"nature" },
+  { id:679, source:"terremoto",       translations:{ en:"earthquake",         ar:"زلزال"            }, level:"B2", category:"nature" },
+  { id:680, source:"eruzione",        translations:{ en:"eruption",           ar:"ثوران بركاني"      }, level:"B2", category:"nature" },
+  { id:681, source:"alluvione",       translations:{ en:"flood",              ar:"فيضان"            }, level:"B2", category:"nature" },
+
+  // ── B2 TECHNOLOGY ─────────────────────────────────────────────────────────
+  { id:682, source:"intelligenza artificiale", translations:{ en:"artificial intelligence", ar:"ذكاء اصطناعي" }, level:"B2", category:"technology" },
+  { id:683, source:"algoritmo",       translations:{ en:"algorithm",          ar:"خوارزمية"          }, level:"B2", category:"technology" },
+  { id:684, source:"crittografia",    translations:{ en:"cryptography",       ar:"التشفير"           }, level:"B2", category:"technology" },
+  { id:685, source:"cybersicurezza",  translations:{ en:"cybersecurity",      ar:"الأمن السيبراني"   }, level:"B2", category:"technology" },
+  { id:686, source:"aggiornamento",   translations:{ en:"update",             ar:"تحديث"            }, level:"B2", category:"technology" },
+  { id:687, source:"interfaccia",     translations:{ en:"interface",          ar:"واجهة"            }, level:"B2", category:"technology" },
+
+  // ── B2 SENTENCES ──────────────────────────────────────────────────────────
+  { id:688, source:"Bisogna prendere una decisione",       translations:{ en:"A decision needs to be made",    ar:"يجب اتخاذ قرار"              }, level:"B2", category:"sentences" },
+  { id:689, source:"A mio parere, questa soluzione non funziona", translations:{ en:"In my opinion, this solution doesn't work", ar:"في رأيي، هذا الحل لا يجدي" }, level:"B2", category:"sentences" },
+  { id:690, source:"Nonostante le difficoltà, siamo riusciti",    translations:{ en:"Despite the difficulties, we succeeded",   ar:"رغم الصعوبات، نجحنا"          }, level:"B2", category:"sentences" },
+  { id:691, source:"Da un lato... dall'altro lato",               translations:{ en:"On one hand... on the other hand",         ar:"من جهة... من جهة أخرى"        }, level:"B2", category:"sentences" },
+  { id:692, source:"È fondamentale tenere conto di tutti gli aspetti", translations:{ en:"It's essential to take all aspects into account", ar:"من الضروري مراعاة جميع الجوانب" }, level:"B2", category:"sentences" },
+  { id:693, source:"Non avrei mai pensato che fosse possibile",   translations:{ en:"I would never have thought it was possible", ar:"لم أكن لأتخيل أن ذلك ممكن"    }, level:"B2", category:"sentences" },
+  { id:694, source:"Sarebbe meglio aspettare",                    translations:{ en:"It would be better to wait",               ar:"سيكون من الأفضل الانتظار"     }, level:"B2", category:"sentences" },
+  { id:695, source:"Dipende dalle circostanze",                   translations:{ en:"It depends on the circumstances",          ar:"يعتمد على الظروف"             }, level:"B2", category:"sentences" },
+
+  // ── C1 VERBS ──────────────────────────────────────────────────────────────
+  { id:696, source:"approfondire",    translations:{ en:"to delve deeper into",ar:"يتعمق في"          }, level:"C1", category:"verbs" },
+  { id:697, source:"suscitare",       translations:{ en:"to arouse / evoke",  ar:"يُثير"             }, level:"C1", category:"verbs" },
+  { id:698, source:"perseguire",      translations:{ en:"to pursue",          ar:"يسعى إلى / يتابع"  }, level:"C1", category:"verbs" },
+  { id:699, source:"condizionare",    translations:{ en:"to condition / affect",ar:"يُشرط / يؤثر"     }, level:"C1", category:"verbs" },
+  { id:700, source:"distinguere",     translations:{ en:"to distinguish",     ar:"يُميِّز"            }, level:"C1", category:"verbs" },
+  { id:701, source:"manifestare",     translations:{ en:"to manifest / show", ar:"يُجلِّي / يُظهر"    }, level:"C1", category:"verbs" },
+  { id:702, source:"prevalere",       translations:{ en:"to prevail",         ar:"يسود / يغلب"        }, level:"C1", category:"verbs" },
+  { id:703, source:"emergere",        translations:{ en:"to emerge",          ar:"يظهر / يبرز"        }, level:"C1", category:"verbs" },
+  { id:704, source:"consolidare",     translations:{ en:"to consolidate",     ar:"يُرسِّخ / يُدعِّم"  }, level:"C1", category:"verbs" },
+  { id:705, source:"trascurare",      translations:{ en:"to neglect",         ar:"يهمل"              }, level:"C1", category:"verbs" },
+  { id:706, source:"sottovalutare",   translations:{ en:"to underestimate",   ar:"يُقلِّل من شأن"     }, level:"C1", category:"verbs" },
+  { id:707, source:"sopravvalutare",  translations:{ en:"to overestimate",    ar:"يبالغ في تقدير"     }, level:"C1", category:"verbs" },
+  { id:708, source:"intraprendere",   translations:{ en:"to undertake",       ar:"يُباشر / يُقدم على" }, level:"C1", category:"verbs" },
+  { id:709, source:"attribuire",      translations:{ en:"to attribute / assign",ar:"ينسب / يُعزو"     }, level:"C1", category:"verbs" },
+  { id:710, source:"riconciliare",    translations:{ en:"to reconcile",       ar:"يُصالح"            }, level:"C1", category:"verbs" },
+
+  // ── C1 ADJECTIVES ─────────────────────────────────────────────────────────
+  { id:711, source:"sofisticato",     translations:{ en:"sophisticated",      ar:"متطور / راقٍ"       }, level:"C1", category:"adjectives" },
+  { id:712, source:"esaustivo",       translations:{ en:"exhaustive",         ar:"شامل / مستوفٍ"      }, level:"C1", category:"adjectives" },
+  { id:713, source:"ambivalente",     translations:{ en:"ambivalent",         ar:"متردد / ازدواجي"    }, level:"C1", category:"adjectives" },
+  { id:714, source:"rigoroso",        translations:{ en:"rigorous",           ar:"صارم / دقيق"        }, level:"C1", category:"adjectives" },
+  { id:715, source:"persuasivo",      translations:{ en:"persuasive",         ar:"مقنع"              }, level:"C1", category:"adjectives" },
+  { id:716, source:"eloquente",       translations:{ en:"eloquent",           ar:"بليغ"              }, level:"C1", category:"adjectives" },
+  { id:717, source:"incisivo",        translations:{ en:"incisive",           ar:"نافذ / حاد"         }, level:"C1", category:"adjectives" },
+  { id:718, source:"imprescindibile", translations:{ en:"indispensable",      ar:"لا غنى عنه"         }, level:"C1", category:"adjectives" },
+  { id:719, source:"sfumato",         translations:{ en:"nuanced",            ar:"دقيق الفروق"        }, level:"C1", category:"adjectives" },
+  { id:720, source:"approfondito",    translations:{ en:"in-depth",           ar:"مُعمَّق"            }, level:"C1", category:"adjectives" },
+
+  // ── C1 NOUNS ──────────────────────────────────────────────────────────────
+  { id:721, source:"la sfida",        translations:{ en:"the challenge",      ar:"التحدي"            }, level:"C1", category:"general" },
+  { id:722, source:"il contesto",     translations:{ en:"the context",        ar:"السياق"            }, level:"C1", category:"general" },
+  { id:723, source:"il criterio",     translations:{ en:"the criterion",      ar:"المعيار"           }, level:"C1", category:"general" },
+  { id:724, source:"la prospettiva",  translations:{ en:"the perspective",    ar:"المنظور"           }, level:"C1", category:"general" },
+  { id:725, source:"il dibattito",    translations:{ en:"the debate",         ar:"النقاش"            }, level:"C1", category:"general" },
+  { id:726, source:"la tendenza",     translations:{ en:"the trend",          ar:"الاتجاه / التوجه"  }, level:"C1", category:"general" },
+  { id:727, source:"l'ambito",        translations:{ en:"the scope / field",  ar:"النطاق / المجال"   }, level:"C1", category:"general" },
+  { id:728, source:"il percorso",     translations:{ en:"the path / journey", ar:"المسار / الرحلة"   }, level:"C1", category:"general" },
+  { id:729, source:"la consapevolezza",translations:{ en:"awareness",         ar:"الوعي"             }, level:"C1", category:"general" },
+  { id:730, source:"il paradosso",    translations:{ en:"the paradox",        ar:"المفارقة / التناقض"}, level:"C1", category:"general" },
+
+  // ── C1 SENTENCES ──────────────────────────────────────────────────────────
+  { id:731, source:"Occorre fare una distinzione fondamentale",   translations:{ en:"A fundamental distinction must be made",   ar:"يجب إجراء تمييز أساسي"          }, level:"C1", category:"sentences" },
+  { id:732, source:"È opportuno analizzare la questione nel suo complesso", translations:{ en:"It is appropriate to analyze the matter as a whole", ar:"من المناسب تحليل المسألة في مجملها" }, level:"C1", category:"sentences" },
+  { id:733, source:"Ciò nonostante, rimane la questione aperta",  translations:{ en:"Nevertheless, the question remains open",   ar:"ومع ذلك، تبقى المسألة مفتوحة"   }, level:"C1", category:"sentences" },
+  { id:734, source:"In definitiva, la scelta spetta a noi",       translations:{ en:"Ultimately, the choice is ours",           ar:"في نهاية المطاف، القرار بأيدينا" }, level:"C1", category:"sentences" },
+  { id:735, source:"Non si può prescindere da questo fattore",    translations:{ en:"This factor cannot be ignored",            ar:"لا يمكن تجاهل هذا العامل"        }, level:"C1", category:"sentences" },
+  { id:736, source:"A prescindere dalle apparenze",               translations:{ en:"Regardless of appearances",               ar:"بصرف النظر عن المظاهر"           }, level:"C1", category:"sentences" },
+
+  // ── C1 WORK / BUSINESS ────────────────────────────────────────────────────
+  { id:737, source:"fusione",         translations:{ en:"merger",             ar:"اندماج"            }, level:"C1", category:"work" },
+  { id:738, source:"rendimento",      translations:{ en:"performance / yield",ar:"أداء / عائد"        }, level:"C1", category:"work" },
+  { id:739, source:"governance",      translations:{ en:"governance",         ar:"حوكمة"             }, level:"C1", category:"work" },
+  { id:740, source:"stakeholder",     translations:{ en:"stakeholder",        ar:"صاحب مصلحة"        }, level:"C1", category:"work" },
+  { id:741, source:"appalto",         translations:{ en:"contract / tender",  ar:"عطاء / مناقصة"     }, level:"C1", category:"work" },
+
+  // ── C1 EMOTIONS ───────────────────────────────────────────────────────────
+  { id:742, source:"risentimento",    translations:{ en:"resentment",         ar:"استياء / ضغينة"    }, level:"C1", category:"emotions" },
+  { id:743, source:"rimpianto",       translations:{ en:"regret",             ar:"ندم"               }, level:"C1", category:"emotions" },
+  { id:744, source:"indifferenza",    translations:{ en:"indifference",       ar:"لامبالاة"          }, level:"C1", category:"emotions" },
+  { id:745, source:"appagamento",     translations:{ en:"fulfillment",        ar:"إشباع / رضا"        }, level:"C1", category:"emotions" },
+  { id:746, source:"trepidazione",    translations:{ en:"trepidation",        ar:"ارتياع / قلق"       }, level:"C1", category:"emotions" },
+
+  // ── C2 VERBS ──────────────────────────────────────────────────────────────
+  { id:747, source:"eludere",         translations:{ en:"to elude / evade",   ar:"يتحاشى / يتملص"    }, level:"C2", category:"verbs" },
+  { id:748, source:"travisare",       translations:{ en:"to misrepresent",    ar:"يُحرِّف / يُسيء تفسير" }, level:"C2", category:"verbs" },
+  { id:749, source:"corroborare",     translations:{ en:"to corroborate",     ar:"يُعزِّز / يُؤيِّد"  }, level:"C2", category:"verbs" },
+  { id:750, source:"dirimere",        translations:{ en:"to settle / resolve",ar:"يفصل في / يحسم"    }, level:"C2", category:"verbs" },
+  { id:751, source:"avvincere",       translations:{ en:"to captivate",       ar:"يأسر / يستهوي"     }, level:"C2", category:"verbs" },
+  { id:752, source:"obliterare",      translations:{ en:"to obliterate",      ar:"يمحو / يُبيد"      }, level:"C2", category:"verbs" },
+
+  // ── C2 ADJECTIVES ─────────────────────────────────────────────────────────
+  { id:753, source:"lungimirante",    translations:{ en:"far-sighted",        ar:"بعيد النظر"        }, level:"C2", category:"adjectives" },
+  { id:754, source:"perspicace",      translations:{ en:"perspicacious",      ar:"ثاقب البصيرة"      }, level:"C2", category:"adjectives" },
+  { id:755, source:"laconico",        translations:{ en:"laconic",            ar:"موجز / مقتضب"      }, level:"C2", category:"adjectives" },
+  { id:756, source:"veemente",        translations:{ en:"vehement",           ar:"عنيف / متحمس جداً" }, level:"C2", category:"adjectives" },
+  { id:757, source:"perentorio",      translations:{ en:"peremptory",         ar:"قاطع / حاسم"       }, level:"C2", category:"adjectives" },
+  { id:758, source:"prodigioso",      translations:{ en:"prodigious",         ar:"باهر / عجيب"       }, level:"C2", category:"adjectives" },
+
+  // ── C2 NOUNS ──────────────────────────────────────────────────────────────
+  { id:759, source:"l'eufemismo",     translations:{ en:"euphemism",          ar:"التلطف اللغوي"     }, level:"C2", category:"general" },
+  { id:760, source:"l'ossimoro",      translations:{ en:"oxymoron",           ar:"المتناقض اللغوي"   }, level:"C2", category:"general" },
+  { id:761, source:"la sfumatura",    translations:{ en:"nuance",             ar:"الفارق الدقيق"     }, level:"C2", category:"general" },
+  { id:762, source:"la lungimiranza", translations:{ en:"farsightedness",     ar:"بُعد النظر"        }, level:"C2", category:"general" },
+  { id:763, source:"l'aforisma",      translations:{ en:"aphorism",           ar:"حكمة مأثورة"       }, level:"C2", category:"general" },
+  { id:764, source:"il paradigma",    translations:{ en:"paradigm",           ar:"النموذج المرجعي"   }, level:"C2", category:"general" },
+  { id:765, source:"l'introspezione", translations:{ en:"introspection",      ar:"المراقبة الذاتية"  }, level:"C2", category:"general" },
+
+  // ── C2 SENTENCES ──────────────────────────────────────────────────────────
+  { id:766, source:"L'eccezione conferma la regola",              translations:{ en:"The exception proves the rule",           ar:"الاستثناء يثبت القاعدة"          }, level:"C2", category:"sentences" },
+  { id:767, source:"Tra il dire e il fare c'è di mezzo il mare",  translations:{ en:"Easier said than done",                  ar:"بين القول والفعل مسافة طويلة"    }, level:"C2", category:"sentences" },
+  { id:768, source:"Non si vive di solo pane",                    translations:{ en:"Man does not live by bread alone",        ar:"لا يعيش الإنسان على الخبز وحده"  }, level:"C2", category:"sentences" },
+  { id:769, source:"La necessità aguzza l'ingegno",               translations:{ en:"Necessity is the mother of invention",   ar:"الحاجة أم الاختراع"              }, level:"C2", category:"sentences" },
+  { id:770, source:"Chi semina vento raccoglie tempesta",          translations:{ en:"You reap what you sow",                  ar:"من يزرع الريح يحصد العاصفة"      }, level:"C2", category:"sentences" },
+  { id:771, source:"Vale più la pratica della grammatica",         translations:{ en:"Practice makes perfect",                 ar:"الممارسة خير من القواعد النظرية" }, level:"C2", category:"sentences" },
 ];
 
 export default italianVocabRaw;
