@@ -127,7 +127,7 @@ export function CustomDeckModal({
               dir="ltr"
               style={{ ...styles.input, ...(errors.source && styles.inputError) }}
               value={form.source}
-              onChange={e => { setForm(f => ({ ...f, source: e.target.value })); setErrors(v => ({ ...v, source: false })); }}
+              onChange={e => { const v = e.target.value; setForm(f => ({ ...f, source: v.charAt(0).toUpperCase() + v.slice(1) })); setErrors(v => ({ ...v, source: false })); }}
               placeholder="e.g. buongiorno"
             />
 
@@ -136,7 +136,7 @@ export function CustomDeckModal({
               dir="ltr"
               style={{ ...styles.input, ...(errors.en && styles.inputError) }}
               value={form.en}
-              onChange={e => { setForm(f => ({ ...f, en: e.target.value })); setErrors(v => ({ ...v, en: false })); }}
+              onChange={e => { const v = e.target.value; setForm(f => ({ ...f, en: v.charAt(0).toUpperCase() + v.slice(1) })); setErrors(v => ({ ...v, en: false })); }}
               placeholder="e.g. good morning"
             />
 
