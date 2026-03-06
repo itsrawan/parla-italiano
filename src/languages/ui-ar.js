@@ -46,4 +46,23 @@ export default {
   notQuite:        "ليس صحيحاً",
   answer:          "الإجابة:",
   nextCard:        "← التالي",
+
+  // Custom deck
+  myDeck:          "مجموعتي",
+  myCards:         "بطاقاتي",
+  addCard:         "إضافة بطاقة",
+  myDeckEmpty:     "مجموعتك فارغة.",
+  myDeckEmptyHint: "احفظ البطاقات بـ ♥ أو أضف كلمات جديدة.",
+  addCardTitle:    "إضافة بطاقة مخصصة",
+  italianWord:     "الكلمة الإيطالية",
+  englishTranslation: "الترجمة الإنجليزية",
+  arabicTranslation:  "الترجمة العربية",
+  optional:        "(اختياري)",
+  selectLevel:     "المستوى",
+  selectCategory:  "التصنيف",
+  saveCard:        "حفظ البطاقة",
+  cancel:          "إلغاء",
+  removeCard:      "حذف",
+  bookmarkedCards: "محفوظة",
+  customCards:     "مخصصة",
 };

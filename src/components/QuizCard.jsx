@@ -13,7 +13,7 @@ import { SpeakerIcon } from "./SpeakerIcon.jsx";
  * The correct-answer key is driven by card.translations[lang], so it works
  * with any translation language without code changes.
  */
-export function QuizCard({ card, lang, pool, onNext, speak, canSpeak, s }) {
+export function QuizCard({ card, lang, pool, onNext, speak, canSpeak, isBookmarked, onToggleBookmark, s }) {
   const [state, setState] = useState(null);
 
   const buildOptions = useCallback(() => {
@@ -54,10 +54,22 @@ export function QuizCard({ card, lang, pool, onNext, speak, canSpeak, s }) {
       {/* Question */}
       <div style={{ ...styles.questionCard, background: levelBg, borderColor: levelBorder }}>
         <div style={styles.meta}>
-          <span style={{ ...styles.levelBadge, background: levelColor }}>{card.level}</span>
-          <span style={styles.catBadge}>
-            {cat?.emoji} {cat?.label[lang] ?? cat?.label.en}
-          </span>
+          <div style={{ display: "flex", gap: 7, alignItems: "center" }}>
+            <span style={{ ...styles.levelBadge, background: levelColor }}>{card.level}</span>
+            <span style={styles.catBadge}>
+              {cat?.emoji} {cat?.label[lang] ?? cat?.label.en}
+            </span>
+          </div>
+          {!card.isCustom && (
+            <button
+              style={{ ...styles.bookmarkBtn, color: isBookmarked ? "#ef4444" : colors.slate300 }}
+              onClick={onToggleBookmark}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill={isBookmarked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </button>
+          )}
         </div>
 
         <div style={styles.sourceWord}>{card.source}</div>
@@ -141,7 +153,8 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
   },
-  meta:       { display: "flex", gap: 7, alignItems: "center", marginBottom: 14, alignSelf: "flex-start" },
+  meta:       { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14, alignSelf: "stretch" },
+  bookmarkBtn: { background: "none", border: "none", cursor: "pointer", padding: 4, lineHeight: 0, flexShrink: 0 },
   levelBadge: { borderRadius: 7, padding: "3px 9px", fontSize: 11, fontWeight: 800, color: "#fff" },
   catBadge:   { fontSize: 12, color: colors.slate500, fontWeight: 500 },
 

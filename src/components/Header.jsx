@@ -14,9 +14,13 @@ export function Header({
   mode,
   isShuffled,
   activeFilterCount,
+  myDeckOnly,
+  myDeckCount,
   onToggleMode,
   onToggleShuffle,
   onToggleFilter,
+  onToggleMyDeck,
+  onOpenAddCard,
   onChangeLang,
 }) {
   return (
@@ -78,6 +82,33 @@ export function Header({
             )}
           </button>
 
+          {/* My Deck toggle */}
+          <button
+            title={s.myDeck}
+            style={{
+              ...styles.iconBtn,
+              background: myDeckOnly
+                ? "rgba(239,68,68,0.65)"
+                : "rgba(255,255,255,0.15)",
+            }}
+            onClick={onToggleMyDeck}
+          >
+            <svg width="17" height="17" viewBox="0 0 24 24" fill={myDeckOnly ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2.5">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+            {myDeckCount > 0 && (
+              <span style={styles.badge}>{myDeckCount}</span>
+            )}
+          </button>
+
+          {/* Add custom card */}
+          <button title={s.addCard} style={styles.iconBtn} onClick={onOpenAddCard}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+          </button>
+
           {/* Language switcher */}
           <button title={s.language} style={styles.iconBtn} onClick={onChangeLang}>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -96,6 +127,11 @@ export function Header({
       {isShuffled && mode !== "quiz" && (
         <div style={{ ...styles.banner, background: "rgba(34,197,94,0.2)" }}>
           {s.shuffledBanner}
+        </div>
+      )}
+      {myDeckOnly && (
+        <div style={{ ...styles.banner, background: "rgba(239,68,68,0.18)" }}>
+          ♥ {s.myDeck}
         </div>
       )}
     </header>

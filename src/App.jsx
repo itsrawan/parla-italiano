@@ -4,18 +4,20 @@ import { SUPPORTED_UI_LANGUAGES } from "./data/config.js";
 import { getStrings } from "./languages/index.js";
 import { fonts } from "./styles/tokens.js";
 
-import { useSpeech }     from "./hooks/useSpeech.js";
-import { useDeck }       from "./hooks/useDeck.js";
-import { useNavigation } from "./hooks/useNavigation.js";
+import { useSpeech }      from "./hooks/useSpeech.js";
+import { useDeck }        from "./hooks/useDeck.js";
+import { useNavigation }  from "./hooks/useNavigation.js";
+import { useCustomDeck }  from "./hooks/useCustomDeck.js";
 
-import { SplashScreen } from "./components/SplashScreen.jsx";
-import { Header }       from "./components/Header.jsx";
-import { FilterPanel }  from "./components/FilterPanel.jsx";
-import { ProgressBar }  from "./components/ProgressBar.jsx";
-import { FlashCard }    from "./components/FlashCard.jsx";
-import { QuizCard }     from "./components/QuizCard.jsx";
+import { SplashScreen }      from "./components/SplashScreen.jsx";
+import { Header }            from "./components/Header.jsx";
+import { FilterPanel }       from "./components/FilterPanel.jsx";
+import { ProgressBar }       from "./components/ProgressBar.jsx";
+import { FlashCard }         from "./components/FlashCard.jsx";
+import { QuizCard }          from "./components/QuizCard.jsx";
 import { NavRow }            from "./components/NavRow.jsx";
 import { VoiceWarningModal } from "./components/VoiceWarningModal.jsx";
+import { CustomDeckModal }   from "./components/CustomDeckModal.jsx";
 
 /**
  * Root orchestrator — owns top-level state, wires hooks and components.
@@ -26,6 +28,8 @@ export default function App() {
   const [mode, setMode]               = useState("flashcard"); // "flashcard" | "quiz"
   const [flipped, setFlipped]         = useState(false);
   const [showFilter, setShowFilter]   = useState(false);
+  const [myDeckOnly, setMyDeckOnly]   = useState(false);
+  const [showCustomModal, setShowCustomModal] = useState(false);
   const [selectedLevels, setSelectedLevels] = useState([]);
   const [selectedCats,   setSelectedCats]   = useState([]);
 
@@ -39,9 +43,14 @@ export default function App() {
   const { speak, voiceMissing, dismissVoiceWarning } = useSpeech();
 
   const {
+    bookmarkedIds, customCards, isBookmarked,
+    toggleBookmark, removeBookmark, addCustomCard, removeCustomCard, myDeckCount,
+  } = useCustomDeck();
+
+  const {
     deck, baseFiltered, card, safeIndex,
     setCardIndex, isShuffled, toggleShuffle,
-  } = useDeck(selectedLevels, selectedCats);
+  } = useDeck(selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards);
 
   const { swipeDir, goNext, goPrev, onTouchStart, onTouchEnd } = useNavigation({
     safeIndex,
@@ -88,9 +97,13 @@ export default function App() {
         mode={mode}
         isShuffled={isShuffled}
         activeFilterCount={selectedLevels.length + selectedCats.length}
+        myDeckOnly={myDeckOnly}
+        myDeckCount={myDeckCount}
         onToggleMode={handleToggleMode}
         onToggleShuffle={toggleShuffle}
         onToggleFilter={() => setShowFilter(f => !f)}
+        onToggleMyDeck={() => setMyDeckOnly(m => !m)}
+        onOpenAddCard={() => setShowCustomModal(true)}
         onChangeLang={() => setLang(null)}
       />
 
@@ -122,6 +135,8 @@ export default function App() {
                 onNext={goNext}
                 speak={speak}
                 canSpeak={!voiceMissing}
+                isBookmarked={isBookmarked(card?.id)}
+                onToggleBookmark={() => toggleBookmark(card?.id)}
                 s={s}
               />
             ) : (
@@ -133,6 +148,8 @@ export default function App() {
                   swipeDir={swipeDir}
                   speak={speak}
                   canSpeak={!voiceMissing}
+                  isBookmarked={isBookmarked(card?.id)}
+                  onToggleBookmark={() => toggleBookmark(card?.id)}
                   s={s}
                   onFlip={() => setFlipped(f => !f)}
                   onTouchStart={onTouchStart}
@@ -155,6 +172,19 @@ export default function App() {
       </main>
 
       {voiceMissing && <VoiceWarningModal onDismiss={dismissVoiceWarning} />}
+
+      {showCustomModal && (
+        <CustomDeckModal
+          lang={lang}
+          s={s}
+          bookmarkedIds={bookmarkedIds}
+          customCards={customCards}
+          onRemoveBookmark={removeBookmark}
+          onRemoveCustom={removeCustomCard}
+          onAddCustom={addCustomCard}
+          onClose={() => setShowCustomModal(false)}
+        />
+      )}
     </div>
   );
 }

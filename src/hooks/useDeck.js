@@ -11,16 +11,23 @@ import { VOCAB } from "../data/vocab/index.js";
  *  - Track and bound the current card index
  *  - Reset to card 0 whenever filters change
  */
-export function useDeck(selectedLevels, selectedCats) {
-  const baseFiltered = useMemo(
-    () =>
-      VOCAB.filter(
-        w =>
-          (selectedLevels.length === 0 || selectedLevels.includes(w.level)) &&
-          (selectedCats.length  === 0 || selectedCats.includes(w.category))
-      ),
-    [selectedLevels, selectedCats]
-  );
+export function useDeck(
+  selectedLevels,
+  selectedCats,
+  myDeckOnly   = false,
+  bookmarkedIds = new Set(),
+  customCards  = [],
+) {
+  const baseFiltered = useMemo(() => {
+    const pool = myDeckOnly
+      ? [...VOCAB.filter(w => bookmarkedIds.has(w.id)), ...customCards]
+      : VOCAB;
+    return pool.filter(
+      w =>
+        (selectedLevels.length === 0 || selectedLevels.includes(w.level)) &&
+        (selectedCats.length   === 0 || selectedCats.includes(w.category))
+    );
+  }, [selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards]);
 
   const [shuffledDeck, setShuffledDeck] = useState(null);
   const [cardIndex, setCardIndex]       = useState(0);

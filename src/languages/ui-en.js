@@ -47,4 +47,23 @@ export default {
   notQuite:        "Not quite",
   answer:          "Answer:",
   nextCard:        "Next →",
+
+  // Custom deck
+  myDeck:          "My Deck",
+  myCards:         "My Cards",
+  addCard:         "Add Card",
+  myDeckEmpty:     "Your deck is empty.",
+  myDeckEmptyHint: "Bookmark cards with ♥ or add custom words.",
+  addCardTitle:    "Add Custom Card",
+  italianWord:     "Italian Word",
+  englishTranslation: "English Translation",
+  arabicTranslation:  "Arabic Translation",
+  optional:        "(optional)",
+  selectLevel:     "Level",
+  selectCategory:  "Category",
+  saveCard:        "Save Card",
+  cancel:          "Cancel",
+  removeCard:      "Remove",
+  bookmarkedCards: "Saved",
+  customCards:     "Custom",
 };

@@ -18,6 +18,8 @@ export function FlashCard({
   swipeDir,
   speak,
   canSpeak,
+  isBookmarked,
+  onToggleBookmark,
   s,
   onFlip,
   onTouchStart,
@@ -60,7 +62,17 @@ export function FlashCard({
               borderColor:  levelBorder,
             }}
           >
-            <CardMeta levelColor={levelColor} card={card} cat={cat} lang={lang} />
+            <div style={styles.metaRow}>
+              <CardMeta levelColor={levelColor} card={card} cat={cat} lang={lang} />
+              {!card.isCustom && (
+                <button
+                  style={{ ...styles.bookmarkBtn, color: isBookmarked ? "#ef4444" : colors.slate300 }}
+                  onClick={e => { e.stopPropagation(); onToggleBookmark(); }}
+                >
+                  <HeartIcon filled={isBookmarked} />
+                </button>
+              )}
+            </div>
 
             <div style={styles.frontCenter}>
               <div style={styles.italianWord}>{card.source}</div>
@@ -123,6 +135,14 @@ export function FlashCard({
   );
 }
 
+function HeartIcon({ filled, size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
+  );
+}
+
 /** Small level badge + category label shown on both card faces. */
 function CardMeta({ levelColor, card, cat, lang, dark = false }) {
   return (
@@ -138,7 +158,7 @@ function CardMeta({ levelColor, card, cat, lang, dark = false }) {
 }
 
 const metaStyles = {
-  row:        { display: "flex", gap: 7, alignItems: "center", marginBottom: 14 },
+  row:        { display: "flex", gap: 7, alignItems: "center" },
   levelBadge: { borderRadius: 7, padding: "3px 9px", fontSize: 11, fontWeight: 800, color: "#fff" },
   catBadge:   { fontSize: 12, fontWeight: 500 },
 };
@@ -257,6 +277,20 @@ const styles = {
     color: "rgba(255,255,255,0.88)",
     fontFamily: fonts.arabic,
     textAlign: "center",
+  },
+  metaRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 14,
+  },
+  bookmarkBtn: {
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    padding: 4,
+    lineHeight: 0,
+    flexShrink: 0,
   },
   speakBtnDisabled: {
     opacity: 0.35,
