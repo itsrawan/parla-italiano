@@ -124,6 +124,7 @@ export function CustomDeckModal({
 
             <label style={styles.label}>{s.italianWord} *</label>
             <input
+              dir="ltr"
               style={{ ...styles.input, ...(errors.source && styles.inputError) }}
               value={form.source}
               onChange={e => { setForm(f => ({ ...f, source: e.target.value })); setErrors(v => ({ ...v, source: false })); }}
@@ -132,6 +133,7 @@ export function CustomDeckModal({
 
             <label style={styles.label}>{s.englishTranslation} *</label>
             <input
+              dir="ltr"
               style={{ ...styles.input, ...(errors.en && styles.inputError) }}
               value={form.en}
               onChange={e => { setForm(f => ({ ...f, en: e.target.value })); setErrors(v => ({ ...v, en: false })); }}
@@ -199,8 +201,10 @@ function CardRow({ card, lang, badgeLabel, badgeColor, onRemove, removeLabel }) 
       <div style={rowStyles.left}>
         <span style={{ ...rowStyles.levelDot, background: levelColor }} />
         <div style={rowStyles.text}>
-          <span style={rowStyles.source}>{card.source}</span>
-          <span style={rowStyles.trans}>{card.translations[lang] ?? card.translations.en}</span>
+          <span style={{ ...rowStyles.source, direction: "ltr" }}>{card.source}</span>
+          <span style={{ ...rowStyles.trans, direction: lang === "ar" ? "rtl" : "ltr" }}>
+            {card.translations[lang] ?? card.translations.en}
+          </span>
         </div>
         <span style={{ ...rowStyles.typeBadge, background: badgeColor }}>{badgeLabel}</span>
       </div>
