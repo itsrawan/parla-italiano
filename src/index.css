@@ -1,0 +1,72 @@
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Neutralise Vite/browser default button styles so component
+   inline styles take full control. */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
+}
+button:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* ── Responsive layout helpers ───────────────────────────────── */
+
+/* Full-width header */
+.app-header {
+  width: 100%;
+}
+
+/* Centred content column — grows from mobile to wide desktop */
+.app-container {
+  width: 100%;
+  max-width: 960px;       /* comfortable reading width on desktop */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Card / quiz area — sized for the card itself */
+.card-area {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ── Responsive breakpoints ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0 12px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .app-container {
+    max-width: 1100px;
+  }
+  .card-area {
+    max-width: 620px;
+  }
+}
