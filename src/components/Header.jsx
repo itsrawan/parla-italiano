@@ -50,7 +50,7 @@ export function Header({
             </svg>
           </button>
 
-          {/* Shuffle toggle — dice */}
+          {/* Shuffle toggle — shuffle arrows */}
           <button
             title={s.shuffle}
             style={{
@@ -61,13 +61,12 @@ export function Header({
             }}
             onClick={onToggleShuffle}
           >
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <rect x="2" y="2" width="20" height="20" rx="4" ry="4" />
-              <circle cx="8"  cy="8"  r="1.5" fill="currentColor" stroke="none" />
-              <circle cx="16" cy="8"  r="1.5" fill="currentColor" stroke="none" />
-              <circle cx="8"  cy="16" r="1.5" fill="currentColor" stroke="none" />
-              <circle cx="16" cy="16" r="1.5" fill="currentColor" stroke="none" />
-              <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="16 3 21 3 21 8" />
+              <line x1="4" y1="20" x2="21" y2="3" />
+              <polyline points="21 16 21 21 16 21" />
+              <line x1="15" y1="15" x2="21" y2="21" />
+              <line x1="4" y1="4" x2="9" y2="9" />
             </svg>
           </button>
 
