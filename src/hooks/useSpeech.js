@@ -53,27 +53,19 @@ export function useSpeech() {
 
   const speak = useCallback((text) => {
     if (!window.speechSynthesis) return;
+
+    // Always speak synchronously — iOS Safari requires speechSynthesis.speak()
+    // to be called directly inside the tap handler (no async gap allowed).
+    // We rely on utt.lang for voice selection if no voice is loaded yet;
+    // the browser will still pick the correct language.
     window.speechSynthesis.cancel();
-
-    const doSpeak = () => {
-      const utt  = new SpeechSynthesisUtterance(text);
-      utt.lang   = speechLang;
-      utt.rate   = 0.82;
-      utt.pitch  = 1.0;
-      const voice = findVoice(speechLang);
-      if (voice) utt.voice = voice;
-      window.speechSynthesis.speak(utt);
-    };
-
-    if (window.speechSynthesis.getVoices().length > 0) {
-      doSpeak();
-    } else {
-      const onReady = () => {
-        window.speechSynthesis.removeEventListener("voiceschanged", onReady);
-        doSpeak();
-      };
-      window.speechSynthesis.addEventListener("voiceschanged", onReady);
-    }
+    const utt   = new SpeechSynthesisUtterance(text);
+    utt.lang    = speechLang;
+    utt.rate    = 0.82;
+    utt.pitch   = 1.0;
+    const voice = findVoice(speechLang);
+    if (voice) utt.voice = voice;
+    window.speechSynthesis.speak(utt);
   }, [speechLang]);
 
   const dismissVoiceWarning = useCallback(() => {
