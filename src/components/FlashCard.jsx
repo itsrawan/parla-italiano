@@ -30,6 +30,15 @@ export function FlashCard({
   const levelBorder = LEVEL_BORDER[card.level]  ?? colors.slate200;
   const cat         = CATEGORY_MAP[card.category];
 
+  // Scale font down for long text so cards never overflow on mobile
+  const srcLen   = card.source.length;
+  const srcSize  = srcLen > 60 ? 18 : srcLen > 35 ? 26 : srcLen > 18 ? 34 : 44;
+
+  const trlText  = card.translations[lang] ?? card.translations.en ?? "";
+  const trlLen   = trlText.length;
+  const trlBase  = lang === "ar" ? 32 : 30;
+  const trlSize  = trlLen > 60 ? 16 : trlLen > 35 ? (lang === "ar" ? 22 : 20) : trlLen > 20 ? (lang === "ar" ? 26 : 24) : trlBase;
+
   const cardTransform =
     swipeDir === "left"  ? "translateX(-90px)" :
     swipeDir === "right" ? "translateX(90px)"  : "translateX(0)";
@@ -75,7 +84,7 @@ export function FlashCard({
             </div>
 
             <div style={styles.frontCenter}>
-              <div style={{ ...styles.italianWord, direction: "ltr" }}>{card.source}</div>
+              <div style={{ ...styles.italianWord, direction: "ltr", fontSize: srcSize }}>{card.source}</div>
               <button
                 disabled={!canSpeak}
                 style={{ ...styles.speakBtnLarge, ...(!canSpeak && styles.speakBtnDisabled) }}
@@ -112,13 +121,14 @@ export function FlashCard({
             />
 
             <div style={styles.backCenter}>
-              <div style={{ ...styles.backSource, direction: "ltr" }}>{card.source}</div>
+              <div style={{ ...styles.backSource, direction: "ltr", fontSize: Math.min(24, srcSize) }}>{card.source}</div>
               <div style={styles.divider} />
               <div style={{
                 ...(lang === "ar" ? styles.translationAr : styles.translationEn),
                 direction: lang === "ar" ? "rtl" : "ltr",
+                fontSize: trlSize,
               }}>
-                {card.translations[lang] ?? card.translations.en}
+                {trlText}
               </div>
             </div>
 
@@ -175,19 +185,20 @@ const styles = {
   scene: {
     width: "100%",
     perspective: "1200px",
-    minHeight: 320,
+    minHeight: 240,
+    maxHeight: "min(480px, calc(100vh - 190px))",
   },
   flipper: {
     position: "relative",
     width: "100%",
-    minHeight: 320,
+    minHeight: 240,
+    maxHeight: "min(480px, calc(100vh - 190px))",
     transformStyle: "preserve-3d",
     transition: "transform 0.55s cubic-bezier(0.45,0.05,0.55,0.95)",
   },
   face: {
     position: "absolute",
-    top: 0, left: 0, right: 0,
-    minHeight: 320,
+    top: 0, left: 0, right: 0, bottom: 0,
     backfaceVisibility: "hidden",
     WebkitBackfaceVisibility: "hidden",
     borderRadius: radius.xl,
@@ -197,6 +208,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "stretch",
+    overflow: "hidden",
   },
   front: {},
   back: {
@@ -211,6 +223,8 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     padding: "14px 0",
+    overflowY: "auto",
+    minHeight: 0,
   },
   italianWord: {
     fontSize: 44,
@@ -250,6 +264,8 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     padding: "8px 0",
+    overflowY: "auto",
+    minHeight: 0,
   },
   backSource: {
     fontSize: 24,

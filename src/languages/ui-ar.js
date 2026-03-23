@@ -65,4 +65,17 @@ export default {
   removeCard:      "حذف",
   bookmarkedCards: "محفوظة",
   customCards:     "مخصصة",
+
+  // Voice warning modal
+  voiceTitle:      "الصوت الإيطالي غير موجود",
+  voiceBody:       "متصفحك ينطق الكلمات الإيطالية بصوت إنجليزي لأنه لا يوجد صوت تحويل النص إلى كلام بالإيطالية مثبَّت على جهازك.",
+  voiceHowToFix:   "كيفية الإصلاح (ويندوز):",
+  voiceStep1:      "افتح إعدادات ويندوز",
+  voiceStep2:      "اذهب إلى الوقت واللغة ← اللغة والمنطقة",
+  voiceStep3:      'انقر على "إضافة لغة" واختر Italiano',
+  voiceStep4:      'ضع علامة على "تحويل النص إلى كلام" ثم انقر تثبيت',
+  voiceStep5:      "أعد تشغيل المتصفح",
+  voiceMac:        "على macOS: إعدادات النظام ← الوصول ← المحتوى المنطوق ← الصوت ← Italian.",
+  voiceDontShow:   "لا تُظهر مجدداً",
+  voiceGotIt:      "حسناً",
 };

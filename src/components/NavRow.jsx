@@ -32,7 +32,7 @@ const styles = {
     display: "flex",
     gap: 10,
     marginTop: 20,
-    alignItems: "center",
+    alignItems: "stretch",
   },
   navBtn: {
     padding: "13px 26px",

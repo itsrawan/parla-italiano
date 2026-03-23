@@ -66,4 +66,17 @@ export default {
   removeCard:      "Remove",
   bookmarkedCards: "Saved",
   customCards:     "Custom",
+
+  // Voice warning modal
+  voiceTitle:      "Italian Voice Not Found",
+  voiceBody:       "Your browser is pronouncing Italian words with an English voice because no Italian Text-to-Speech voice is installed on your system.",
+  voiceHowToFix:   "How to fix (Windows):",
+  voiceStep1:      "Open Windows Settings",
+  voiceStep2:      "Go to Time & Language → Language & Region",
+  voiceStep3:      'Click "Add a language" and choose Italiano',
+  voiceStep4:      'Tick "Text-to-speech" then click Install',
+  voiceStep5:      "Restart your browser",
+  voiceMac:        "On macOS: System Settings → Accessibility → Spoken Content → System Voice → Italian.",
+  voiceDontShow:   "Don't show again",
+  voiceGotIt:      "Got it",
 };

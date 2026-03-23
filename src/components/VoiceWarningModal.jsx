@@ -1,57 +1,60 @@
 import { colors, radius, shadow, gradients } from "../styles/tokens.js";
 
-const STEPS = [
-  { n: 1, text: "Open Windows Settings" },
-  { n: 2, text: "Go to  Time & Language → Language & Region" },
-  { n: 3, text: 'Click "Add a language" and choose Italiano' },
-  { n: 4, text: 'Tick "Text-to-speech" then click Install' },
-  { n: 5, text: "Restart your browser" },
-];
-
 /**
  * Modal shown when no Italian TTS voice is found on the user's system.
  * Explains what is wrong and how to fix it.
- * The user can dismiss it permanently ("Don't show again").
+ * Respects the selected UI language (Arabic → RTL, English → LTR).
  */
-export function VoiceWarningModal({ onDismiss }) {
+export function VoiceWarningModal({ onDismiss, s, lang }) {
+  const isRtl = lang === "ar";
+  const dir   = isRtl ? "rtl" : "ltr";
+
+  const steps = [
+    s.voiceStep1,
+    s.voiceStep2,
+    s.voiceStep3,
+    s.voiceStep4,
+    s.voiceStep5,
+  ];
+
   return (
     <div style={styles.overlay}>
-      <div style={styles.modal} role="dialog" aria-modal="true">
+      <div style={{ ...styles.modal, direction: dir }} role="dialog" aria-modal="true">
 
-        {/* Icon + heading */}
+        {/* Icon */}
         <div style={styles.iconRow}>
           <span style={styles.icon}>🔇</span>
         </div>
-        <h2 style={styles.title}>Italian Voice Not Found</h2>
-        <p style={styles.body}>
-          Your browser is pronouncing Italian words with an English voice because
-          no Italian Text-to-Speech voice is installed on your system.
-        </p>
+
+        {/* Heading */}
+        <h2 style={styles.title}>{s.voiceTitle}</h2>
+
+        {/* Body */}
+        <p style={styles.body}>{s.voiceBody}</p>
 
         {/* Fix steps */}
         <div style={styles.stepsBox}>
-          <p style={styles.stepsHeading}>How to fix (Windows):</p>
+          <p style={styles.stepsHeading}>{s.voiceHowToFix}</p>
           <ol style={styles.list}>
-            {STEPS.map(s => (
-              <li key={s.n} style={styles.listItem}>
-                <span style={styles.stepNum}>{s.n}</span>
-                <span>{s.text}</span>
+            {steps.map((text, i) => (
+              <li key={i} style={{ ...styles.listItem, flexDirection: isRtl ? "row-reverse" : "row" }}>
+                <span style={styles.stepNum}>{i + 1}</span>
+                <span>{text}</span>
               </li>
             ))}
           </ol>
         </div>
 
-        <p style={styles.note}>
-          On macOS: System Settings → Accessibility → Spoken Content → System Voice → Italian.
-        </p>
+        {/* macOS note */}
+        <p style={styles.note}>{s.voiceMac}</p>
 
         {/* Actions */}
-        <div style={styles.btnRow}>
+        <div style={{ ...styles.btnRow, flexDirection: isRtl ? "row-reverse" : "row" }}>
           <button style={styles.dismissBtn} onClick={onDismiss}>
-            Don't show again
+            {s.voiceDontShow}
           </button>
           <button style={styles.okBtn} onClick={onDismiss}>
-            Got it
+            {s.voiceGotIt}
           </button>
         </div>
       </div>

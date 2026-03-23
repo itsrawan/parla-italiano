@@ -171,7 +171,7 @@ export default function App() {
         )}
       </main>
 
-      {voiceMissing && <VoiceWarningModal onDismiss={dismissVoiceWarning} />}
+      {voiceMissing && <VoiceWarningModal onDismiss={dismissVoiceWarning} s={s} lang={lang} />}
 
       {showCustomModal && (
         <CustomDeckModal

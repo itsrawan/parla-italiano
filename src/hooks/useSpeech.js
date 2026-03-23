@@ -36,6 +36,9 @@ export function useSpeech() {
     if (!window.speechSynthesis) return;
     // Already dismissed by user in a previous session
     if (localStorage.getItem(DISMISSED_KEY)) return;
+    // Mobile OS TTS always works via system/cloud voices that don't appear in
+    // getVoices() — skip the warning to avoid false positives on phones/tablets.
+    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return;
 
     const check = () => {
       // Wait 2 s so Chrome's second voice batch (Google voices) can arrive.
