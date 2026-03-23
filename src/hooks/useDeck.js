@@ -14,9 +14,10 @@ import { VOCAB } from "../data/vocab/index.js";
 export function useDeck(
   selectedLevels,
   selectedCats,
-  myDeckOnly   = false,
-  bookmarkedIds = new Set(),
-  customCards  = [],
+  myDeckOnly     = false,
+  bookmarkedIds  = new Set(),
+  customCards    = [],
+  initialCardIndex = 0,
 ) {
   const baseFiltered = useMemo(() => {
     const pool = myDeckOnly
@@ -30,7 +31,7 @@ export function useDeck(
   }, [selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards]);
 
   const [shuffledDeck, setShuffledDeck] = useState(null);
-  const [cardIndex, setCardIndex]       = useState(0);
+  const [cardIndex, setCardIndex]       = useState(initialCardIndex);
 
   // Reset to top whenever the filtered set changes
   useEffect(() => {

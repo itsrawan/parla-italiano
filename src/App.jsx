@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { SUPPORTED_UI_LANGUAGES } from "./data/config.js";
 import { getStrings } from "./languages/index.js";
@@ -8,6 +8,7 @@ import { useSpeech }      from "./hooks/useSpeech.js";
 import { useDeck }        from "./hooks/useDeck.js";
 import { useNavigation }  from "./hooks/useNavigation.js";
 import { useCustomDeck }  from "./hooks/useCustomDeck.js";
+import { useProgress }    from "./hooks/useProgress.js";
 
 import { SplashScreen }      from "./components/SplashScreen.jsx";
 import { Header }            from "./components/Header.jsx";
@@ -24,14 +25,18 @@ import { CustomDeckModal }   from "./components/CustomDeckModal.jsx";
  * No UI rendering or business logic lives here directly.
  */
 export default function App() {
-  const [lang, setLang]               = useState(null);
-  const [mode, setMode]               = useState("flashcard"); // "flashcard" | "quiz"
-  const [flipped, setFlipped]         = useState(false);
-  const [showFilter, setShowFilter]   = useState(false);
-  const [myDeckOnly, setMyDeckOnly]   = useState(false);
-  const [showCustomModal, setShowCustomModal] = useState(false);
-  const [selectedLevels, setSelectedLevels] = useState([]);
-  const [selectedCats,   setSelectedCats]   = useState([]);
+  const {
+    lang, setLang,
+    mode, setMode,
+    selectedLevels, setSelectedLevels,
+    selectedCats,   setSelectedCats,
+    myDeckOnly,     setMyDeckOnly,
+    savedCardIndex, setSavedCardIndex,
+  } = useProgress();
+
+  const [flipped,         setFlipped]         = useState(false);
+  const [showFilter,      setShowFilter]       = useState(false);
+  const [showCustomModal, setShowCustomModal]  = useState(false);
 
   // ── Derived state ────────────────────────────────────────────
   const currentLangConfig = SUPPORTED_UI_LANGUAGES.find(l => l.code === lang);
@@ -50,7 +55,10 @@ export default function App() {
   const {
     deck, baseFiltered, card, safeIndex,
     setCardIndex, isShuffled, toggleShuffle,
-  } = useDeck(selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards);
+  } = useDeck(selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards, savedCardIndex);
+
+  // Keep saved card index in sync so it's restored on next visit
+  useEffect(() => { setSavedCardIndex(safeIndex); }, [safeIndex, setSavedCardIndex]);
 
   const { swipeDir, goNext, goPrev, onTouchStart, onTouchEnd } = useNavigation({
     safeIndex,
