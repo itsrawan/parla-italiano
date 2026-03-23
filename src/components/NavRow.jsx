@@ -38,7 +38,7 @@ const styles = {
     padding: "13px 26px",
     borderRadius: radius.md,
     border: `2px solid ${colors.green100}`,
-    background: "#fff",
+    background: "var(--bg-card)",
     cursor: "pointer",
     fontSize: 16,
     fontWeight: 600,

@@ -221,7 +221,7 @@ const styles = {
     zIndex: 1000, padding: 16,
   },
   modal: {
-    background: "#fff",
+    background: "var(--bg-card)",
     borderRadius: radius.xxl,
     width: "100%", maxWidth: 480,
     boxShadow: shadow.splash,
@@ -284,7 +284,8 @@ const styles = {
     width: "100%", padding: "9px 12px",
     border: `1.5px solid ${colors.slate200}`,
     borderRadius: radius.sm,
-    fontSize: 14, color: colors.brandNavy,
+    fontSize: 14, color: "var(--text-primary)",
+    background: "var(--bg-input)",
     outline: "none", boxSizing: "border-box",
     fontFamily: "inherit",
   },
@@ -293,8 +294,8 @@ const styles = {
     width: "100%", padding: "9px 12px",
     border: `1.5px solid ${colors.slate200}`,
     borderRadius: radius.sm,
-    fontSize: 13, color: colors.brandNavy,
-    background: "#fff", cursor: "pointer",
+    fontSize: 13, color: "var(--text-primary)",
+    background: "var(--bg-input)", cursor: "pointer",
     fontFamily: "inherit",
   },
   row2: {
@@ -306,7 +307,7 @@ const styles = {
   cancelBtn: {
     padding: "9px 18px", borderRadius: radius.md,
     border: `1.5px solid ${colors.slate200}`,
-    background: "#fff", color: colors.slate500,
+    background: "var(--bg-card)", color: colors.slate500,
     fontSize: 13, fontWeight: 600, cursor: "pointer",
   },
   saveBtn: {

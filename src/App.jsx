@@ -97,7 +97,7 @@ export default function App() {
 
   return (
     <div
-      style={{ minHeight: "100vh", background: "#f1f5f9", fontFamily: fonts.ui }}
+      style={{ minHeight: "100vh", background: "var(--bg-app)", fontFamily: fonts.ui }}
       dir={dir}
     >
       <Header
@@ -229,7 +229,7 @@ const styles = {
   swipeHint: {
     marginTop: 14,
     fontSize: 11,
-    color: "#cbd5e1",
+    color: "var(--text-hint)",
     textAlign: "center",
   },
   emptyState: {

@@ -31,13 +31,16 @@ export function FlashCard({
   const cat         = CATEGORY_MAP[card.category];
 
   // Scale font down for long text so cards never overflow on mobile
-  const srcLen   = card.source.length;
-  const srcSize  = srcLen > 60 ? 18 : srcLen > 35 ? 26 : srcLen > 18 ? 34 : 44;
+  const srcLen  = card.source.length;
+  const srcSize = srcLen > 80 ? 14 : srcLen > 60 ? 17 : srcLen > 40 ? 21 : srcLen > 25 ? 28 : srcLen > 15 ? 36 : 44;
+  const srcLine = srcLen > 30 ? 1.45 : 1.2;
 
-  const trlText  = card.translations[lang] ?? card.translations.en ?? "";
-  const trlLen   = trlText.length;
-  const trlBase  = lang === "ar" ? 32 : 30;
-  const trlSize  = trlLen > 60 ? 16 : trlLen > 35 ? (lang === "ar" ? 22 : 20) : trlLen > 20 ? (lang === "ar" ? 26 : 24) : trlBase;
+  const trlText = card.translations[lang] ?? card.translations.en ?? "";
+  const trlLen  = trlText.length;
+  const isAr    = lang === "ar";
+  const trlBase = isAr ? 30 : 28;
+  const trlSize = trlLen > 80 ? 14 : trlLen > 60 ? 17 : trlLen > 40 ? (isAr ? 20 : 18) : trlLen > 25 ? (isAr ? 24 : 22) : trlLen > 15 ? (isAr ? 27 : 25) : trlBase;
+  const trlLine = trlLen > 30 ? 1.45 : 1.3;
 
   const cardTransform =
     swipeDir === "left"  ? "translateX(-90px)" :
@@ -84,7 +87,7 @@ export function FlashCard({
             </div>
 
             <div style={styles.frontCenter}>
-              <div style={{ ...styles.italianWord, direction: "ltr", fontSize: srcSize }}>{card.source}</div>
+              <div style={{ ...styles.italianWord, direction: "ltr", fontSize: srcSize, lineHeight: srcLine }}>{card.source}</div>
               <button
                 disabled={!canSpeak}
                 style={{ ...styles.speakBtnLarge, ...(!canSpeak && styles.speakBtnDisabled) }}
@@ -121,12 +124,13 @@ export function FlashCard({
             />
 
             <div style={styles.backCenter}>
-              <div style={{ ...styles.backSource, direction: "ltr", fontSize: Math.min(24, srcSize) }}>{card.source}</div>
+              <div style={{ ...styles.backSource, direction: "ltr", fontSize: Math.min(22, srcSize), lineHeight: srcLine }}>{card.source}</div>
               <div style={styles.divider} />
               <div style={{
                 ...(lang === "ar" ? styles.translationAr : styles.translationEn),
                 direction: lang === "ar" ? "rtl" : "ltr",
                 fontSize: trlSize,
+                lineHeight: trlLine,
               }}>
                 {trlText}
               </div>
@@ -185,20 +189,20 @@ const styles = {
   scene: {
     width: "100%",
     perspective: "1200px",
-    minHeight: 240,
-    maxHeight: "min(480px, calc(100vh - 190px))",
+    // Explicit height so position:absolute faces can fill it.
+    // min() clamps to 520px on desktop; on mobile leaves room for header + NavRow.
+    height: "min(520px, calc(100vh - 220px))",
   },
   flipper: {
     position: "relative",
     width: "100%",
-    minHeight: 240,
-    maxHeight: "min(480px, calc(100vh - 190px))",
+    height: "100%",   // fill the scene exactly
     transformStyle: "preserve-3d",
     transition: "transform 0.55s cubic-bezier(0.45,0.05,0.55,0.95)",
   },
   face: {
     position: "absolute",
-    top: 0, left: 0, right: 0, bottom: 0,
+    inset: 0,          // top/right/bottom/left all 0 — fills the flipper
     backfaceVisibility: "hidden",
     WebkitBackfaceVisibility: "hidden",
     borderRadius: radius.xl,

@@ -1,3 +1,86 @@
+/* ── Design tokens (CSS custom properties) ───────────────────── */
+:root {
+  /* Surfaces */
+  --bg-app:         #f1f5f9;
+  --bg-card:        #ffffff;
+  --bg-subtle:      #f1f5f9;
+  --bg-input:       #ffffff;
+
+  /* Borders */
+  --border:         #e2e8f0;
+  --border-light:   #cbd5e1;
+
+  /* Text */
+  --text-primary:   #1e3a5f;
+  --text-body:      #475569;
+  --text-secondary: #64748b;
+  --text-muted:     #94a3b8;
+  --text-hint:      #cbd5e1;
+  --text-word:      #14532d;   /* Italian word on card front */
+
+  /* Selection highlights */
+  --color-badge-bg:    #bbf7d0;
+  --color-badge-light: #dcfce7;
+
+  /* Level card backgrounds & borders */
+  --lvl-a1-bg: #dcfce7; --lvl-a1-bd: #86efac;
+  --lvl-a2-bg: #ecfccb; --lvl-a2-bd: #bef264;
+  --lvl-b1-bg: #fef3c7; --lvl-b1-bd: #fcd34d;
+  --lvl-b2-bg: #ffedd5; --lvl-b2-bd: #fdba74;
+  --lvl-c1-bg: #fee2e2; --lvl-c1-bd: #fca5a5;
+  --lvl-c2-bg: #f3e8ff; --lvl-c2-bd: #d8b4fe;
+
+  /* Quiz feedback */
+  --quiz-correct-bg:   #dcfce7;
+  --quiz-correct-bd:   #86efac;
+  --quiz-correct-txt:  #166534;
+  --quiz-wrong-bg:     #fee2e2;
+  --quiz-wrong-bd:     #fca5a5;
+  --quiz-wrong-txt:    #991b1b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Surfaces */
+    --bg-app:         #0f172a;
+    --bg-card:        #1e293b;
+    --bg-subtle:      #1e293b;
+    --bg-input:       #263348;
+
+    /* Borders */
+    --border:         #334155;
+    --border-light:   #475569;
+
+    /* Text */
+    --text-primary:   #e2e8f0;
+    --text-body:      #cbd5e1;
+    --text-secondary: #94a3b8;
+    --text-muted:     #64748b;
+    --text-hint:      #475569;
+    --text-word:      #86efac;  /* bright green — readable on dark card */
+
+    /* Selection highlights */
+    --color-badge-bg:    #14532d;
+    --color-badge-light: #052e16;
+
+    /* Level card backgrounds (muted dark equivalents) */
+    --lvl-a1-bg: #052e16; --lvl-a1-bd: #14532d;
+    --lvl-a2-bg: #1a2e05; --lvl-a2-bd: #365314;
+    --lvl-b1-bg: #3b1f00; --lvl-b1-bd: #78350f;
+    --lvl-b2-bg: #431407; --lvl-b2-bd: #9a3412;
+    --lvl-c1-bg: #450a0a; --lvl-c1-bd: #991b1b;
+    --lvl-c2-bg: #2e1065; --lvl-c2-bd: #6b21a8;
+
+    /* Quiz feedback */
+    --quiz-correct-bg:   #052e16;
+    --quiz-correct-bd:   #14532d;
+    --quiz-correct-txt:  #86efac;
+    --quiz-wrong-bg:     #450a0a;
+    --quiz-wrong-bd:     #991b1b;
+    --quiz-wrong-txt:    #fca5a5;
+  }
+}
+
 /* ── Reset ───────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -10,10 +93,12 @@ html, body, #root {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #f1f5f9;
+  background-color: var(--bg-app);
+  color: var(--text-body);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Neutralise Vite/browser default button styles so component
@@ -36,20 +121,17 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* ── Responsive layout helpers ───────────────────────────────── */
 
-/* Full-width header */
 .app-header {
   width: 100%;
 }
 
-/* Centred content column — grows from mobile to wide desktop */
 .app-container {
   width: 100%;
-  max-width: 960px;       /* comfortable reading width on desktop */
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* Card / quiz area — sized for the card itself */
 .card-area {
   width: 100%;
   max-width: 560px;

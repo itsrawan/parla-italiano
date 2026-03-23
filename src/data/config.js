@@ -22,13 +22,13 @@ export const LEVEL_COLORS = {
 };
 
 export const LEVEL_BG = {
-  A1: "#dcfce7", A2: "#ecfccb", B1: "#fef3c7",
-  B2: "#ffedd5", C1: "#fee2e2", C2: "#f3e8ff",
+  A1: "var(--lvl-a1-bg)", A2: "var(--lvl-a2-bg)", B1: "var(--lvl-b1-bg)",
+  B2: "var(--lvl-b2-bg)", C1: "var(--lvl-c1-bg)", C2: "var(--lvl-c2-bg)",
 };
 
 export const LEVEL_BORDER = {
-  A1: "#86efac", A2: "#bef264", B1: "#fcd34d",
-  B2: "#fdba74", C1: "#fca5a5", C2: "#d8b4fe",
+  A1: "var(--lvl-a1-bd)", A2: "var(--lvl-a2-bd)", B1: "var(--lvl-b1-bd)",
+  B2: "var(--lvl-b2-bd)", C1: "var(--lvl-c1-bd)", C2: "var(--lvl-c2-bd)",
 };
 
 // ── Categories ────────────────────────────────────────────────

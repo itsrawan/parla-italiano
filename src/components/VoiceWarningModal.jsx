@@ -74,7 +74,7 @@ const styles = {
     padding: 16,
   },
   modal: {
-    background: "#fff",
+    background: "var(--bg-card)",
     borderRadius: radius.xxl,
     padding: "32px 28px 24px",
     maxWidth: 440,
@@ -163,7 +163,7 @@ const styles = {
     padding: "9px 16px",
     borderRadius: radius.md,
     border: `1.5px solid ${colors.slate200}`,
-    background: "#fff",
+    background: "var(--bg-card)",
     color: colors.slate500,
     fontSize: 13,
     fontWeight: 600,
