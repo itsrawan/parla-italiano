@@ -18,6 +18,7 @@ export function useProgress() {
   const [saved] = useState(load);   // read once at mount
 
   const [lang,           setLang]           = useState(saved.lang           ?? null);
+  const [learningLang,   setLearningLang]   = useState(saved.learningLang   ?? "it");
   const [mode,           setMode]           = useState(saved.mode           ?? "flashcard");
   const [selectedLevels, setSelectedLevels] = useState(saved.selectedLevels ?? []);
   const [selectedCats,   setSelectedCats]   = useState(saved.selectedCats   ?? []);
@@ -28,16 +29,18 @@ export function useProgress() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       lang,
+      learningLang,
       mode,
       selectedLevels,
       selectedCats,
       myDeckOnly,
       cardIndex: savedCardIndex,
     }));
-  }, [lang, mode, selectedLevels, selectedCats, myDeckOnly, savedCardIndex]);
+  }, [lang, learningLang, mode, selectedLevels, selectedCats, myDeckOnly, savedCardIndex]);
 
   return {
     lang,           setLang,
+    learningLang,   setLearningLang,
     mode,           setMode,
     selectedLevels, setSelectedLevels,
     selectedCats,   setSelectedCats,

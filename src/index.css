@@ -39,47 +39,6 @@
   --quiz-wrong-txt:    #991b1b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Surfaces */
-    --bg-app:         #0f172a;
-    --bg-card:        #1e293b;
-    --bg-subtle:      #1e293b;
-    --bg-input:       #263348;
-
-    /* Borders */
-    --border:         #334155;
-    --border-light:   #475569;
-
-    /* Text */
-    --text-primary:   #e2e8f0;
-    --text-body:      #cbd5e1;
-    --text-secondary: #94a3b8;
-    --text-muted:     #64748b;
-    --text-hint:      #475569;
-    --text-word:      #86efac;  /* bright green — readable on dark card */
-
-    /* Selection highlights */
-    --color-badge-bg:    #14532d;
-    --color-badge-light: #052e16;
-
-    /* Level card backgrounds (muted dark equivalents) */
-    --lvl-a1-bg: #052e16; --lvl-a1-bd: #14532d;
-    --lvl-a2-bg: #1a2e05; --lvl-a2-bd: #365314;
-    --lvl-b1-bg: #3b1f00; --lvl-b1-bd: #78350f;
-    --lvl-b2-bg: #431407; --lvl-b2-bd: #9a3412;
-    --lvl-c1-bg: #450a0a; --lvl-c1-bd: #991b1b;
-    --lvl-c2-bg: #2e1065; --lvl-c2-bd: #6b21a8;
-
-    /* Quiz feedback */
-    --quiz-correct-bg:   #052e16;
-    --quiz-correct-bd:   #14532d;
-    --quiz-correct-txt:  #86efac;
-    --quiz-wrong-bg:     #450a0a;
-    --quiz-wrong-bd:     #991b1b;
-    --quiz-wrong-txt:    #fca5a5;
-  }
-}
 
 /* ── Reset ───────────────────────────────────────────────────── */
 *, *::before, *::after {
@@ -98,7 +57,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Neutralise Vite/browser default button styles so component

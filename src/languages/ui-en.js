@@ -79,4 +79,7 @@ export default {
   voiceMac:        "On macOS: System Settings → Accessibility → Spoken Content → System Voice → Italian.",
   voiceDontShow:   "Don't show again",
   voiceGotIt:      "Got it",
+
+  // Splash — step 2
+  pickLearning:    "What would you like to learn?",
 };

@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { SOURCE_LANGUAGE } from "../data/config.js";
 
 const DISMISSED_KEY = "parla_voice_warning_dismissed";
 
@@ -28,8 +27,7 @@ function findVoice(speechLang) {
  * Voice detection waits 2 s after voices first load to let Chrome finish
  * delivering its second (Google network) voice batch before declaring them missing.
  */
-export function useSpeech() {
-  const { speechLang }  = SOURCE_LANGUAGE;
+export function useSpeech(speechLang) {
   const [voiceMissing, setVoiceMissing] = useState(false);
 
   useEffect(() => {

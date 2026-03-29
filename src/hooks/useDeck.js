@@ -1,12 +1,12 @@
 import { useState, useMemo, useEffect } from "react";
 import { shuffle } from "../utils/string.js";
-import { VOCAB } from "../data/vocab/index.js";
+import { getVocab } from "../data/vocab/index.js";
 
 /**
  * Manages the active deck of vocabulary cards.
  *
  * Responsibilities:
- *  - Filter VOCAB by selected levels and categories (memoised)
+ *  - Filter vocab by selected levels and categories (memoised)
  *  - Toggle shuffle on/off (Fisher-Yates)
  *  - Track and bound the current card index
  *  - Reset to card 0 whenever filters change
@@ -18,17 +18,19 @@ export function useDeck(
   bookmarkedIds  = new Set(),
   customCards    = [],
   initialCardIndex = 0,
+  learningLang   = "it",
+  nativeLang     = "en",
 ) {
   const baseFiltered = useMemo(() => {
     const pool = myDeckOnly
-      ? [...VOCAB.filter(w => bookmarkedIds.has(w.id)), ...customCards]
-      : VOCAB;
+      ? [...getVocab(learningLang, nativeLang).filter(w => bookmarkedIds.has(w.id)), ...customCards]
+      : getVocab(learningLang, nativeLang);
     return pool.filter(
       w =>
         (selectedLevels.length === 0 || selectedLevels.includes(w.level)) &&
         (selectedCats.length   === 0 || selectedCats.includes(w.category))
     );
-  }, [selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards]);
+  }, [selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards, learningLang, nativeLang]);
 
   const [shuffledDeck, setShuffledDeck] = useState(null);
   const [cardIndex, setCardIndex]       = useState(initialCardIndex);

@@ -2,17 +2,33 @@ import { capitalize } from "../../utils/string.js";
 import italianVocabRaw from "./italian.js";
 
 /**
- * Exported VOCAB applies capitalisation at module load time (once).
- * - source words are capitalised unless category === "sentences"
- *   (sentences already carry their own natural casing)
- * - English translations are capitalised
- * - Arabic translations are left as-is (Arabic capitalisation doesn't apply)
+ * Process raw cards: add `it` to translations (from `source`), apply capitalisation.
+ * The result is a language-agnostic card: { id, level, category, translations: { it, en, ar } }
  */
-export const VOCAB = italianVocabRaw.map(w => ({
-  ...w,
-  source: w.category === "sentences" ? w.source : capitalize(w.source),
-  translations: {
-    ...w.translations,
-    en: capitalize(w.translations.en),
-  },
-}));
+function processCard(card) {
+  const itText = card.category === "sentences" ? card.source : capitalize(card.source);
+  return {
+    id:       card.id,
+    level:    card.level,
+    category: card.category,
+    translations: {
+      it: itText,
+      en: capitalize(card.translations.en),
+      ar: card.translations.ar,
+    },
+  };
+}
+
+// Single master deck — reused for all learning directions
+export const VOCAB = italianVocabRaw.map(processCard);
+
+/**
+ * Returns the master vocab, filtered to cards that have translations
+ * in both the learning language and the native language.
+ */
+export function getVocab(learningLang = "it", nativeLang = "en") {
+  if (learningLang === nativeLang) return [];
+  return VOCAB.filter(
+    c => c.translations[learningLang] && c.translations[nativeLang]
+  );
+}

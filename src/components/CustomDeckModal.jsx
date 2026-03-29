@@ -13,6 +13,7 @@ import { colors, gradients, radius, shadow } from "../styles/tokens.js";
 export function CustomDeckModal({
   lang,
   s,
+  learningLang,
   bookmarkedIds,
   customCards,
   onRemoveBookmark,
@@ -22,10 +23,10 @@ export function CustomDeckModal({
 }) {
   const [tab, setTab] = useState("manage");
   const [form, setForm] = useState({
-    source: "",
-    en:     "",
-    ar:     "",
-    level:  "A1",
+    it:       "",
+    en:       "",
+    ar:       "",
+    level:    "A1",
     category: CATEGORIES[0].id,
   });
   const [errors, setErrors] = useState({});
@@ -37,18 +38,17 @@ export function CustomDeckModal({
   const handleSubmit = (e) => {
     e.preventDefault();
     const errs = {};
-    if (!form.source.trim()) errs.source = true;
-    if (!form.en.trim())     errs.en     = true;
+    if (!form.it.trim()) errs.it = true;
+    if (!form.en.trim()) errs.en = true;
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
 
     onAddCustom({
-      source:       form.source.trim(),
-      translations: { en: form.en.trim(), ar: form.ar.trim() || form.en.trim() },
+      translations: { it: form.it.trim(), en: form.en.trim(), ar: form.ar.trim() },
       level:        form.level,
       category:     form.category,
     });
 
-    setForm({ source: "", en: "", ar: "", level: "A1", category: CATEGORIES[0].id });
+    setForm({ it: "", en: "", ar: "", level: "A1", category: CATEGORIES[0].id });
     setErrors({});
     setSaved(true);
     setTimeout(() => { setSaved(false); setTab("manage"); }, 900);
@@ -125,9 +125,9 @@ export function CustomDeckModal({
             <label style={styles.label}>{s.italianWord} *</label>
             <input
               dir="ltr"
-              style={{ ...styles.input, ...(errors.source && styles.inputError) }}
-              value={form.source}
-              onChange={e => { const v = e.target.value; setForm(f => ({ ...f, source: v.charAt(0).toUpperCase() + v.slice(1) })); setErrors(v => ({ ...v, source: false })); }}
+              style={{ ...styles.input, ...(errors.it && styles.inputError) }}
+              value={form.it}
+              onChange={e => { const v = e.target.value; setForm(f => ({ ...f, it: v.charAt(0).toUpperCase() + v.slice(1) })); setErrors(v => ({ ...v, it: false })); }}
               placeholder="e.g. buongiorno"
             />
 

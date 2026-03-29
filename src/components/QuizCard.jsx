@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { LEVEL_BG, LEVEL_BORDER, LEVEL_COLORS, CATEGORY_MAP } from "../data/config.js";
+import { LEVEL_BG, LEVEL_BORDER, LEVEL_COLORS, CATEGORY_MAP, LANGUAGES } from "../data/config.js";
 import { colors, gradients, fonts, radius, shadow } from "../styles/tokens.js";
 import { shuffle } from "../utils/string.js";
 import { SpeakerIcon } from "./SpeakerIcon.jsx";
@@ -13,8 +13,9 @@ import { SpeakerIcon } from "./SpeakerIcon.jsx";
  * The correct-answer key is driven by card.translations[lang], so it works
  * with any translation language without code changes.
  */
-export function QuizCard({ card, lang, pool, onNext, speak, canSpeak, isBookmarked, onToggleBookmark, s }) {
+export function QuizCard({ card, lang, pool, onNext, speak, canSpeak, isBookmarked, onToggleBookmark, s, learningLang }) {
   const [state, setState] = useState(null);
+  const frontDir = LANGUAGES[learningLang]?.rtl ? "rtl" : "ltr";
 
   const buildOptions = useCallback(() => {
     if (!card || pool.length < 4) return;
@@ -72,12 +73,12 @@ export function QuizCard({ card, lang, pool, onNext, speak, canSpeak, isBookmark
           )}
         </div>
 
-        <div style={{ ...styles.sourceWord, direction: "ltr" }}>{card.source}</div>
+        <div style={{ ...styles.sourceWord, direction: frontDir, fontFamily: learningLang === "ar" ? fonts.arabic : fonts.serif }}>{card.translations[learningLang]}</div>
 
         <button
           disabled={!canSpeak}
           style={{ ...styles.speakBtn, ...(!canSpeak && styles.speakBtnDisabled) }}
-          onClick={() => speak(card.source)}
+          onClick={() => speak(card.translations[learningLang])}
         >
           <SpeakerIcon size={16} />
           {s.listen}

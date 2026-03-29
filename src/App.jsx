@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { SUPPORTED_UI_LANGUAGES } from "./data/config.js";
+import { LANGUAGES } from "./data/config.js";
 import { getStrings } from "./languages/index.js";
 import { fonts } from "./styles/tokens.js";
 
@@ -27,6 +27,7 @@ import { CustomDeckModal }   from "./components/CustomDeckModal.jsx";
 export default function App() {
   const {
     lang, setLang,
+    learningLang, setLearningLang,
     mode, setMode,
     selectedLevels, setSelectedLevels,
     selectedCats,   setSelectedCats,
@@ -39,13 +40,13 @@ export default function App() {
   const [showCustomModal, setShowCustomModal]  = useState(false);
 
   // ── Derived state ────────────────────────────────────────────
-  const currentLangConfig = SUPPORTED_UI_LANGUAGES.find(l => l.code === lang);
+  const currentLangConfig = LANGUAGES[lang];
   const isRTL = currentLangConfig?.rtl ?? false;
   const dir   = isRTL ? "rtl" : "ltr";
   const s     = getStrings(lang);            // UI string bundle
 
   // ── Custom hooks ─────────────────────────────────────────────
-  const { speak, voiceMissing, dismissVoiceWarning } = useSpeech();
+  const { speak, voiceMissing, dismissVoiceWarning } = useSpeech(LANGUAGES[learningLang]?.speechLang ?? "it-IT");
 
   const {
     bookmarkedIds, customCards, isBookmarked,
@@ -55,7 +56,7 @@ export default function App() {
   const {
     deck, baseFiltered, card, safeIndex,
     setCardIndex, isShuffled, toggleShuffle,
-  } = useDeck(selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards, savedCardIndex);
+  } = useDeck(selectedLevels, selectedCats, myDeckOnly, bookmarkedIds, customCards, savedCardIndex, learningLang, lang);
 
   // Keep saved card index in sync so it's restored on next visit
   useEffect(() => { setSavedCardIndex(safeIndex); }, [safeIndex, setSavedCardIndex]);
@@ -91,8 +92,8 @@ export default function App() {
   };
 
   // ── Splash (lang not selected yet) ───────────────────────────
-  if (!lang) {
-    return <SplashScreen onSelectLang={setLang} />;
+  if (!lang || !learningLang) {
+    return <SplashScreen onStart={(uiLang, lLang) => { setLang(uiLang); setLearningLang(lLang); }} />;
   }
 
   return (
@@ -112,7 +113,7 @@ export default function App() {
         onToggleFilter={() => setShowFilter(f => !f)}
         onToggleMyDeck={() => setMyDeckOnly(m => !m)}
         onOpenAddCard={() => setShowCustomModal(true)}
-        onChangeLang={() => setLang(null)}
+        onChangeLang={() => { setLang(null); setLearningLang(null); }}
       />
 
       {showFilter && (
@@ -146,6 +147,7 @@ export default function App() {
                 isBookmarked={isBookmarked(card?.id)}
                 onToggleBookmark={() => toggleBookmark(card?.id)}
                 s={s}
+                learningLang={learningLang}
               />
             ) : (
               <>
@@ -156,6 +158,7 @@ export default function App() {
                   swipeDir={swipeDir}
                   speak={speak}
                   canSpeak={!voiceMissing}
+                  learningLang={learningLang}
                   isBookmarked={isBookmarked(card?.id)}
                   onToggleBookmark={() => toggleBookmark(card?.id)}
                   s={s}
@@ -185,6 +188,7 @@ export default function App() {
         <CustomDeckModal
           lang={lang}
           s={s}
+          learningLang={learningLang}
           bookmarkedIds={bookmarkedIds}
           customCards={customCards}
           onRemoveBookmark={removeBookmark}

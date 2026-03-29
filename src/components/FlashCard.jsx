@@ -1,4 +1,4 @@
-import { LEVEL_BG, LEVEL_BORDER, LEVEL_COLORS, CATEGORY_MAP } from "../data/config.js";
+import { LEVEL_BG, LEVEL_BORDER, LEVEL_COLORS, CATEGORY_MAP, LANGUAGES } from "../data/config.js";
 import { colors, gradients, fonts, radius, shadow } from "../styles/tokens.js";
 import { SpeakerIcon } from "./SpeakerIcon.jsx";
 
@@ -18,6 +18,7 @@ export function FlashCard({
   swipeDir,
   speak,
   canSpeak,
+  learningLang,
   isBookmarked,
   onToggleBookmark,
   s,
@@ -25,13 +26,14 @@ export function FlashCard({
   onTouchStart,
   onTouchEnd,
 }) {
+  const frontDir = LANGUAGES[learningLang]?.rtl ? "rtl" : "ltr";
   const levelColor  = LEVEL_COLORS[card.level]  ?? colors.brandGreen;
   const levelBg     = LEVEL_BG[card.level]      ?? colors.slate50;
   const levelBorder = LEVEL_BORDER[card.level]  ?? colors.slate200;
   const cat         = CATEGORY_MAP[card.category];
 
   // Scale font down for long text so cards never overflow on mobile
-  const srcLen  = card.source.length;
+  const srcLen  = (card.translations[learningLang] ?? "").length;
   const srcSize = srcLen > 80 ? 14 : srcLen > 60 ? 17 : srcLen > 40 ? 21 : srcLen > 25 ? 28 : srcLen > 15 ? 36 : 44;
   const srcLine = srcLen > 30 ? 1.45 : 1.2;
 
@@ -87,11 +89,11 @@ export function FlashCard({
             </div>
 
             <div style={styles.frontCenter}>
-              <div style={{ ...styles.italianWord, direction: "ltr", fontSize: srcSize, lineHeight: srcLine }}>{card.source}</div>
+              <div style={{ ...styles.italianWord, direction: frontDir, fontSize: srcSize, lineHeight: srcLine, fontFamily: learningLang === "ar" ? fonts.arabic : fonts.serif }}>{card.translations[learningLang]}</div>
               <button
                 disabled={!canSpeak}
                 style={{ ...styles.speakBtnLarge, ...(!canSpeak && styles.speakBtnDisabled) }}
-                onClick={e => { e.stopPropagation(); speak(card.source); }}
+                onClick={e => { e.stopPropagation(); speak(card.translations[learningLang]); }}
               >
                 <SpeakerIcon size={22} />
               </button>
@@ -124,7 +126,7 @@ export function FlashCard({
             />
 
             <div style={styles.backCenter}>
-              <div style={{ ...styles.backSource, direction: "ltr", fontSize: Math.min(22, srcSize), lineHeight: srcLine }}>{card.source}</div>
+              <div style={{ ...styles.backSource, direction: frontDir, fontSize: Math.min(22, srcSize), lineHeight: srcLine }}>{card.translations[learningLang]}</div>
               <div style={styles.divider} />
               <div style={{
                 ...(lang === "ar" ? styles.translationAr : styles.translationEn),
@@ -139,7 +141,7 @@ export function FlashCard({
             <button
               disabled={!canSpeak}
               style={{ ...styles.speakBtnBack, ...(!canSpeak && styles.speakBtnDisabled) }}
-              onClick={e => { e.stopPropagation(); speak(card.source); }}
+              onClick={e => { e.stopPropagation(); speak(card.translations[learningLang]); }}
             >
               <SpeakerIcon size={15} />
               {s.listen}

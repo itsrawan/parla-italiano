@@ -78,4 +78,7 @@ export default {
   voiceMac:        "على macOS: إعدادات النظام ← الوصول ← المحتوى المنطوق ← الصوت ← Italian.",
   voiceDontShow:   "لا تُظهر مجدداً",
   voiceGotIt:      "حسناً",
+
+  // Splash — step 2
+  pickLearning:    "ماذا تريد أن تتعلم؟",
 };

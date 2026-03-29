@@ -1,17 +1,15 @@
-// ── Source Language (the language being learned) ────────────
-export const SOURCE_LANGUAGE = {
-  code: "it",
-  speechLang: "it-IT",
-  name: "Italian",
-  label: { en: "Italian", ar: "الإيطالية" },
+// ── Language registry ─────────────────────────────────────────
+export const LANGUAGES = {
+  it: { code: "it", name: "Italian",  nativeName: "Italiano",  speechLang: "it-IT", rtl: false, flag: "🇮🇹", script: "latin"  },
+  en: { code: "en", name: "English",  nativeName: "English",   speechLang: "en-US", rtl: false, flag: "🇬🇧", script: "latin"  },
+  ar: { code: "ar", name: "Arabic",   nativeName: "العربية",   speechLang: "ar-JO", rtl: true,  flag: "🇯🇴", script: "arabic" },
 };
 
-// ── UI Languages (the learner's native language) ─────────────
-// To add a new UI language: add an entry here and create src/languages/ui-XX.js
-export const SUPPORTED_UI_LANGUAGES = [
-  { code: "en", label: "English",  flag: "🇬🇧", rtl: false },
-  { code: "ar", label: "العربية",  flag: "🇯🇴", rtl: true  },
-];
+// Languages that have a src/languages/ui-XX.js file
+export const UI_LANGUAGES = ["en", "ar", "it"];
+
+// Languages that have a vocab deck (can be learned)
+export const LEARNING_LANGUAGES = ["it", "en", "ar"];
 
 // ── CEFR Levels ───────────────────────────────────────────────
 export const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
